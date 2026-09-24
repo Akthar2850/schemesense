@@ -1,0 +1,12 @@
+# Secrets: never upload
+.env
+.streamlit/secrets.toml
+
+# Virtual environment (reinstall with: pip install -r requirements.txt)
+.venv/
+
+# Vector database (rebuild with: python ingest.py)
+chroma_db/
+
+# Python temporary files
+__pycache__/
