@@ -3,6 +3,8 @@
 An AI assistant that answers questions about Indian government schemes using only official
 government documents, and shows the file and page every answer came from.
 
+**Live demo:** https://schemesense.streamlit.app
+
 > Status: Phase 3. Website built with Streamlit. Automated evaluation scores coming next.
 
 Schemes covered: PM-Kisan, Ayushman Bharat PM-JAY, Atal Pension Yojana, Sukanya Samriddhi,
