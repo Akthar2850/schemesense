@@ -34,11 +34,11 @@ def split_into_chunks(text, size, overlap):
     return [c for c in chunks if c]
 
 
-def main():
+def main(chunk_size=config.CHUNK_SIZE, overlap=config.CHUNK_OVERLAP, collection_name=config.COLLECTION_NAME):
     client = chromadb.PersistentClient(path=str(config.DB_DIR))
-    if config.COLLECTION_NAME in [c.name for c in client.list_collections()]:
-        client.delete_collection(config.COLLECTION_NAME)  # rebuild from scratch
-    collection = client.create_collection(config.COLLECTION_NAME)
+    if collection_name in [c.name for c in client.list_collections()]:
+        client.delete_collection(collection_name)  # rebuild from scratch
+    collection = client.create_collection(collection_name)
 
     ids, documents, metadatas = [], [], []
     for pdf in sorted(config.DATA_DIR.glob("*.pdf")):
@@ -46,7 +46,7 @@ def main():
         file_chunks = 0
         for page_number, page in enumerate(reader.pages, start=1):
             text = clean(page.extract_text() or "")
-            for i, chunk in enumerate(split_into_chunks(text, config.CHUNK_SIZE, config.CHUNK_OVERLAP)):
+            for i, chunk in enumerate(split_into_chunks(text, chunk_size, overlap)):
                 ids.append(f"{pdf.name}-p{page_number}-{i}")
                 documents.append(chunk)
                 metadatas.append({"source": pdf.name, "page": page_number})
@@ -54,7 +54,7 @@ def main():
         print(f"{pdf.name}: {len(reader.pages)} pages, {file_chunks} chunks")
 
     collection.add(ids=ids, documents=documents, metadatas=metadatas)
-    print(f"Stored {len(ids)} chunks in {config.DB_DIR.name}/")
+    print(f"Stored {len(ids)} chunks in {config.DB_DIR.name}/ (collection '{collection_name}')")
 
 
 if __name__ == "__main__":

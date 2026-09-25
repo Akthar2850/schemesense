@@ -1,0 +1,16 @@
+{
+  "description": "A person checked which facts 10 answers contained (run: groq-120b-top-k-8, 25 Sep 2026). The fair mark requires only the facts the question asks for.",
+  "items": [
+    {"id": "kisan-04", "facts_found": {"not eligible": true, "Rs 10,000 threshold": true}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"},
+    {"id": "kisan-07", "facts_found": {"01.02.2019": true, "5-year rule (background)": false}, "fair_mark": "correct", "qwen": "partial", "gemma": "correct"},
+    {"id": "apy-02", "facts_found": {"Rs 1,000-5,000": true, "after age 60": true}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"},
+    {"id": "jay-02", "facts_found": {"yes": true, "70+, regardless of income": true}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"},
+    {"id": "jay-07", "facts_found": {"Delhi, West Bengal, Odisha": true}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"},
+    {"id": "ssy-02", "facts_found": {"Rs 250": true, "Rs 1,50,000": true}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"},
+    {"id": "ssy-08", "facts_found": {"Rs 50 per year": true, "within 15 years (background)": false}, "fair_mark": "correct", "qwen": "partial", "gemma": "correct"},
+    {"id": "pmayg-02", "facts_found": {"25 square metres": true, "cooking area (background)": false}, "fair_mark": "correct", "qwen": "partial", "gemma": "correct"},
+    {"id": "pmayg-05", "facts_found": {"not eligible": true, "Rs 15,000 limit": true}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"},
+    {"id": "ssy-06", "facts_found": {"yes": true, "50%": true, "proof documents (background)": false}, "fair_mark": "correct", "qwen": "correct", "gemma": "correct"}
+  ],
+  "agreement": {"qwen": "7/10", "gemma": "10/10"}
+}

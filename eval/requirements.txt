@@ -1,0 +1,3 @@
+# Extra packages needed only for evaluation (the website doesn't need these).
+-r ../requirements.txt
+openai

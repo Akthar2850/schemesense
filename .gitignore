@@ -8,5 +8,10 @@
 # Vector database (rebuild with: python ingest.py)
 chroma_db/
 
+# Evaluation logs and early trial runs
+eval/results/*.txt
+eval/results/judge-check.json
+eval/results/smoke-*.json
+
 # Python temporary files
 __pycache__/

@@ -5,7 +5,7 @@ government documents, and shows the file and page every answer came from.
 
 **Live demo:** https://schemesense.streamlit.app
 
-> Status: Phase 3. Website built with Streamlit. Automated evaluation scores coming next.
+> Status: Phase 4. Evaluated on 45 test questions: 97.4% correct on the live setting.
 
 Schemes covered: PM-Kisan, Ayushman Bharat PM-JAY, Atal Pension Yojana, Sukanya Samriddhi,
 PM Awas Yojana (Gramin). See [data/SOURCES.md](data/SOURCES.md) for the documents used.
@@ -24,13 +24,26 @@ A plain AI model answering from memory got PM-Kisan wrong:
 
 1. **Ingest** (`ingest.py`): read each PDF page by page, split it into overlapping ~1,000-character
    chunks, and store them in a Chroma vector database with their file name and page number.
-2. **Retrieve** (`rag.py`): turn the question into an embedding and find the 5 most similar chunks.
+2. **Retrieve** (`rag.py`): turn the question into an embedding and find the 8 most similar chunks.
 3. **Generate** (`rag.py`): send the question plus those chunks to an LLM (`openai/gpt-oss-120b`
    on Groq), instructed to answer only from them and cite them as [1], [2]…
 4. **Show** (`app.py`): the answer, the cited passages, response time and token counts.
 
 Production touches: a per-session question limit, friendly errors when the AI service is busy,
 citation clean-up, and all settings in one place (`config.py`).
+
+## Evaluation
+
+45 test questions written from the official documents (39 answerable, 6 that must be refused), graded
+by an independent AI judge that was checked against a human reviewer (10 of 10 agreed).
+
+| gpt-oss-120b | Correct | Off-topic refused |
+|---|---|---|
+| SchemeSense (8 pieces, live) | **97.4%** | 100% |
+| SchemeSense (5 pieces, before) | 89.7% | 100% |
+| Same AI without documents | 41.0% | 0% |
+
+Details, experiments and limitations: [eval/RESULTS.md](eval/RESULTS.md).
 
 ## Setup
 

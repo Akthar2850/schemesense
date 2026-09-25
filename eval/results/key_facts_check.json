@@ -1,0 +1,432 @@
+[
+  {
+    "id": "kisan-01",
+    "key_facts": [
+      "Rs 6,000 per year"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts cover the amount asked in the question."
+  },
+  {
+    "id": "kisan-02",
+    "key_facts": [
+      "three instalments",
+      "Rs 2,000 each"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "All required facts are covered."
+  },
+  {
+    "id": "kisan-03",
+    "key_facts": [
+      "April-July",
+      "August-November",
+      "December-March"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "All required periods are covered."
+  },
+  {
+    "id": "kisan-04",
+    "key_facts": [
+      "not eligible"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts correctly address the question."
+  },
+  {
+    "id": "kisan-05",
+    "key_facts": [
+      "not eligible"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts correctly state the eligibility criteria."
+  },
+  {
+    "id": "kisan-06",
+    "key_facts": [
+      "not eligible"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts correctly address the question."
+  },
+  {
+    "id": "kisan-07",
+    "key_facts": [
+      "1 February 2019 (01.02.2019)"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts correctly cover the cut-off date asked in the question."
+  },
+  {
+    "id": "kisan-08",
+    "key_facts": [
+      "husband, wife and minor children",
+      "who own cultivable land"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts cover the question accurately."
+  },
+  {
+    "id": "apy-01",
+    "key_facts": [
+      "18 to 40 years"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "Key facts cover the age limit as asked."
+  },
+  {
+    "id": "apy-02",
+    "key_facts": [
+      "Rs 1,000, 2,000, 3,000, 4,000 or 5,000 per month"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "All required pension amounts are included."
+  },
+  {
+    "id": "apy-03",
+    "key_facts": [
+      "cannot join (not eligible)"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts cover the question."
+  },
+  {
+    "id": "apy-04",
+    "key_facts": [
+      "the spouse gets the same pension for life",
+      "after the spouse's death, the accumulated pension wealth goes to the nominee"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "All key facts are covered and match the question."
+  },
+  {
+    "id": "apy-05",
+    "key_facts": [
+      "monthly",
+      "quarterly",
+      "half-yearly"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "All required frequency options are covered."
+  },
+  {
+    "id": "apy-06",
+    "key_facts": [
+      "1800 1100 69"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts correctly cover the toll-free helpline number for Atal Pension Yojana."
+  },
+  {
+    "id": "apy-07",
+    "key_facts": [
+      "yes, nomination is mandatory"
+    ],
+    "flagged": false,
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts correctly cover the question."
+  },
+  {
+    "id": "jay-01",
+    "key_facts": [
+      "up to Rs 5 lakh per family per year"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately reflects the specific amount requested in the question."
+  },
+  {
+    "id": "jay-02",
+    "key_facts": [
+      "yes, he is covered"
+    ],
+    "flagged": true,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": false,
+    "too_strict": false,
+    "comment": "Key facts should include the age eligibility (70+) and the fact that it is regardless of income."
+  },
+  {
+    "id": "jay-03",
+    "key_facts": [
+      "yes, an additional top-up cover",
+      "up to Rs 5 lakh per year"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately capture the core answer to the question."
+  },
+  {
+    "id": "jay-04",
+    "key_facts": [
+      "yes, eligible"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately capture the core answer to the question."
+  },
+  {
+    "id": "jay-05",
+    "key_facts": [
+      "continue with CGHS",
+      "or opt for AB PM-JAY"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately reflect the options provided in the reference answer."
+  },
+  {
+    "id": "jay-06",
+    "key_facts": [
+      "secondary and tertiary care hospitalisation"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately reflect the scope of the question and reference answer."
+  },
+  {
+    "id": "jay-07",
+    "key_facts": [
+      "NCT of Delhi",
+      "West Bengal",
+      "Odisha"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately cover all states/UTs requested in the question."
+  },
+  {
+    "id": "jay-08",
+    "key_facts": [
+      "14 digits"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately reflects the specific information requested."
+  },
+  {
+    "id": "ssy-01",
+    "key_facts": [
+      "before the girl turns 10 (under 10 years)"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately reflects the age limit requested in the question."
+  },
+  {
+    "id": "ssy-02",
+    "key_facts": [
+      "minimum Rs 250",
+      "maximum Rs 1,50,000"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately reflect the specific limits requested in the question."
+  },
+  {
+    "id": "ssy-03",
+    "key_facts": [
+      "15 years from opening"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately captures the specific duration requested."
+  },
+  {
+    "id": "ssy-04",
+    "key_facts": [
+      "21 years from opening"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately reflects the question and reference answer."
+  },
+  {
+    "id": "ssy-05",
+    "key_facts": [
+      "8.4% per annum"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately captures the specific interest rate requested."
+  },
+  {
+    "id": "ssy-06",
+    "key_facts": [
+      "yes, withdrawal is allowed",
+      "up to 50% of the balance"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately capture the core answer to the user's specific questions."
+  },
+  {
+    "id": "ssy-07",
+    "key_facts": [
+      "two girl children"
+    ],
+    "flagged": true,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": true,
+    "comment": "Key facts omit the important exceptions for twins and triplets mentioned in the reference."
+  },
+  {
+    "id": "ssy-08",
+    "key_facts": [
+      "Rs 50 per year of default"
+    ],
+    "flagged": true,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": false,
+    "too_strict": true,
+    "comment": "Key facts omit the requirement to pay the minimum deposit for each defaulted year."
+  },
+  {
+    "id": "pmayg-01",
+    "key_facts": [
+      "Rs 1.20 lakh in plain areas",
+      "Rs 1.30 lakh in North Eastern and hill states/UTs"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately capture the financial assistance amounts for all specified regions."
+  },
+  {
+    "id": "pmayg-02",
+    "key_facts": [
+      "25 square metres"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately captures the specific measurement requested."
+  },
+  {
+    "id": "pmayg-03",
+    "key_facts": [
+      "yes",
+      "up to Rs 70,000",
+      "3% reduced interest rate"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key facts accurately capture the loan availability and terms requested."
+  },
+  {
+    "id": "pmayg-04",
+    "key_facts": [
+      "up to Rs 12,000"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately captures the specific monetary value requested."
+  },
+  {
+    "id": "pmayg-05",
+    "key_facts": [
+      "not eligible"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact correctly captures the essential answer to the eligibility question."
+  },
+  {
+    "id": "pmayg-06",
+    "key_facts": [
+      "only if the credit limit is Rs 50,000 or above"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately captures the specific condition for exclusion."
+  },
+  {
+    "id": "pmayg-07",
+    "key_facts": [
+      "a minimum of 60%"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately reflects the specific requirement of the question."
+  },
+  {
+    "id": "pmayg-08",
+    "key_facts": [
+      "20 November 2016"
+    ],
+    "flagged": false,
+    "checked_by": "google/gemma-4-31b-it",
+    "covers_question": true,
+    "too_strict": false,
+    "comment": "The key fact accurately matches the question and reference answer."
+  }
+]
