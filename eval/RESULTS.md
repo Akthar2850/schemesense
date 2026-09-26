@@ -23,6 +23,18 @@ Website model (`gpt-oss-120b` on Groq), 8 pieces × 1,000 chars, **scheme-aware 
   picked the Mudra document instead of PM Vishwakarma. 3 of the 4 questions that don't name a scheme were answered.
 - The 5 partial answers left out one requested detail (for example the 40% annuity rule for NPS).
 
+### Plain vs scheme-aware search, measured on answers (gpt-oss-20b on NVIDIA, 8 pieces)
+
+| Setup | Original 39 questions | All 87 answerable | Off-topic refused |
+|---|---|---|---|
+| 5 schemes (Phase 4) | 85.9% | – | 100% |
+| 15 schemes, plain search | **79.5%** | 79.9% | 100% |
+| 15 schemes, scheme-aware search | **94.9%** | 91.4% | 100% |
+| 15 schemes, scheme-aware, gpt-oss-120b on Groq (live) | 98.7% | 93.7% | 100% |
+
+Adding 10 schemes with plain search cost the small model 6.4 points on the original questions (mix-ups between
+similar documents). Scheme-aware search recovered that and more (+15.4 over plain), on both models.
+
 ## 5 schemes (Phase 4)
 
 ## Test set

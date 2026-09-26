@@ -52,6 +52,7 @@ by an independent AI judge that was checked against a human reviewer (10 of 10 a
 | Same AI without documents (5 schemes) | 41.0% | 0% |
 
 On the original 39 questions, going from 5 to 15 schemes kept accuracy at 98.7% thanks to scheme-aware search.
+Without it (plain search), the smaller gpt-oss-20b dropped from 85.9% to 79.5% on the same questions; with it, 94.9%.
 
 Details, experiments and limitations: [eval/RESULTS.md](eval/RESULTS.md).
 
