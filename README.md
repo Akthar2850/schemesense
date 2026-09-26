@@ -1,5 +1,7 @@
 # SchemeSense
 
+[![Search quality check](https://github.com/Akthar2850/schemesense/actions/workflows/tests.yml/badge.svg)](https://github.com/Akthar2850/schemesense/actions/workflows/tests.yml)
+
 An AI assistant that answers questions about Indian government schemes using only official
 government documents, and shows the file and page every answer came from.
 
@@ -34,7 +36,8 @@ A plain AI model answering from memory got PM-Kisan wrong:
 4. **Show** (`app.py`): the answer, the cited passages, response time and token counts.
 
 Production touches: a per-session question limit, friendly errors when the AI service is busy,
-citation clean-up, and all settings in one place (`config.py`).
+citation clean-up, one JSON log line per question (sources used, speed, tokens), a search-quality check
+that runs on every push (GitHub Actions, `eval/ci_check.py`), and all settings in one place (`config.py`).
 
 ## Evaluation
 

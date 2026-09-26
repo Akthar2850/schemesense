@@ -1,6 +1,9 @@
 """SchemeSense website. Run locally with: streamlit run app.py"""
 
+import json
+import logging
 import os
+import time
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -17,6 +20,20 @@ EXAMPLE_QUESTIONS = [
     "How much can a street vendor borrow under PM SVANidhi?",
     "What is the age limit for PMJJBY and PMSBY?",
 ]
+
+# One JSON line per question in the app's logs (Streamlit Cloud: Manage app -> Logs).
+log = logging.getLogger("schemesense")
+if not log.handlers:
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(message)s"))
+    log.addHandler(handler)
+    log.setLevel(logging.INFO)
+
+
+def log_event(**fields):
+    log.info(json.dumps({"event": "question", "time": time.strftime("%Y-%m-%dT%H:%M:%S"), **fields},
+                        ensure_ascii=False))
+
 
 load_dotenv()  # locally: reads .env. On Streamlit Cloud the key comes from the app's Secrets.
 
@@ -57,6 +74,7 @@ for i, example in enumerate(EXAMPLE_QUESTIONS):
     columns[i % 2].button(example, key=f"example_{i}", on_click=use_example, args=(example,))
 
 question = st.text_input("Your question", key="question", placeholder="e.g. Who is eligible for PM-Kisan?")
+st.caption("Please don't include personal details (name, phone, Aadhaar) in your question; questions are logged.")
 
 if st.button("Ask", key="ask", type="primary") and question.strip():
     if st.session_state.questions_asked >= MAX_QUESTIONS_PER_SESSION:
@@ -71,11 +89,23 @@ if st.button("Ask", key="ask", type="primary") and question.strip():
         with st.spinner("Searching the documents…"):
             result = rag.answer(question)
     except RateLimitError:
+        log_event(question=question[:300], status="rate_limited")
         st.warning("The AI is busy right now. Please try again in a minute.")
         st.stop()
-    except (APIConnectionError, APIStatusError):
+    except (APIConnectionError, APIStatusError) as error:
+        log_event(question=question[:300], status="ai_error", error=type(error).__name__)
         st.error("Couldn't reach the AI service. Please try again in a minute.")
         st.stop()
+
+    log_event(
+        question=question[:300],
+        status="answered",
+        refused=rag.is_refusal(result["answer"]),
+        documents=sorted({s["source"] for s in result["sources"]}),
+        seconds=result["seconds"],
+        input_tokens=result["input_tokens"],
+        output_tokens=result["output_tokens"],
+    )
 
     st.markdown(result["answer"])
 

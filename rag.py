@@ -17,6 +17,13 @@ Use only plain square-bracket numbers for citations, never any other citation fo
 If the passages do not contain the answer, reply exactly: "I couldn't find this in the scheme documents."
 Keep the answer short and clear."""
 
+REFUSAL = "couldn't find this in the scheme documents"
+
+
+def is_refusal(answer):
+    return REFUSAL in answer.lower().replace("\u2019", "'")
+
+
 # Used only by the evaluation's "no documents" baseline (a plain AI answering from memory).
 NO_DOCUMENTS_PROMPT = "You are an assistant for Indian government schemes. Answer the question briefly."
 

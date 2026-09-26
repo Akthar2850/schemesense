@@ -11,9 +11,9 @@ import chromadb  # noqa: E402
 
 import config  # noqa: E402
 import ingest  # noqa: E402
+import rag  # noqa: E402
 
 RESULTS_DIR = EVAL_DIR / "results"
-REFUSAL = "couldn't find this in the scheme documents"
 
 
 def load_questions():
@@ -39,4 +39,4 @@ def is_hit(sources, expected):
 
 
 def is_refusal(answer):
-    return REFUSAL in answer.lower().replace("’", "'")
+    return rag.is_refusal(answer)
