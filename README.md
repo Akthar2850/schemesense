@@ -2,14 +2,22 @@
 
 [![Search quality check](https://github.com/Akthar2850/schemesense/actions/workflows/tests.yml/badge.svg)](https://github.com/Akthar2850/schemesense/actions/workflows/tests.yml)
 
-An AI assistant that answers questions about Indian government schemes using only official
-government documents, and shows the file and page every answer came from.
+**Ask about Indian government schemes and get answers from official documents, with the file and page
+each answer came from.** SchemeSense is a retrieval-augmented generation (RAG) assistant with a measured
+quality bar: it is tested on 93 questions, and it refuses questions its documents don't cover instead of guessing.
 
 **Live demo:** https://schemesense.streamlit.app
 
-> Status: Phase 4b. 15 schemes, evaluated on 93 test questions: 93.7% correct, 100% of off-topic questions refused.
+![SchemeSense answering a PM SVANidhi question with page citations](assets/screenshot.png)
 
-Schemes covered (15): PM-Kisan, Ayushman Bharat PM-JAY, Atal Pension Yojana, Sukanya Samriddhi,
+| Correct answers | Off-topic questions refused | Schemes | Typical answer time |
+|---|---|---|---|
+| **93.7%** (87 test questions) | **100%** | 15 | ~0.7 s |
+
+**Tech stack:** Python · ChromaDB (vector search, local embeddings) · Groq (`gpt-oss-120b`) · Streamlit ·
+GitHub Actions (CI) · NVIDIA-hosted models for evaluation (`gpt-oss-20b`, Gemma judge)
+
+Schemes covered: PM-Kisan, Ayushman Bharat PM-JAY, Atal Pension Yojana, Sukanya Samriddhi,
 PM Awas Yojana (Gramin), PM Ujjwala, PM Jan Dhan, PM Mudra, PM Jeevan Jyoti Bima, PM Suraksha Bima,
 Stand-Up India, PM Vishwakarma, PM SVANidhi, National Pension System, PM Fasal Bima.
 See [data/SOURCES.md](data/SOURCES.md) for the documents used.
@@ -26,7 +34,23 @@ A plain AI model answering from memory got PM-Kisan wrong:
 
 ## How it works
 
-1. **Ingest** (`ingest.py`): read each PDF page by page, split it into overlapping ~1,000-character
+```mermaid
+flowchart LR
+    Q["Question"] --> D{"Names a scheme?"}
+    D -- yes --> S1["Search that scheme's documents first"]
+    D -- no --> S2["Search all documents"]
+    S1 --> P["8 most relevant pieces<br/>(file + page)"]
+    S2 --> P
+    P --> L["LLM on Groq<br/>answer only from the pieces"]
+    L --> A["Answer with [1] [2] citations<br/>or 'I couldn't find this'"]
+    subgraph Offline
+      PDF["Official PDFs / pages"] --> C["Split into ~1,000-char chunks"] --> V[("ChromaDB")]
+    end
+    V -. searched by .-> S1
+    V -. searched by .-> S2
+```
+
+1. **Ingest** (`ingest.py`): read each PDF (and saved web page) page by page, split it into overlapping ~1,000-character
    chunks, and store them in a Chroma vector database with their file name and page number.
 2. **Retrieve** (`rag.py`): turn the question into an embedding and find the 8 most similar chunks.
    If the question names a scheme, search that scheme's documents first (scheme-aware search), so
