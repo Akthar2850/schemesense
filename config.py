@@ -12,6 +12,28 @@ COLLECTION_NAME = "schemes"
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
 
+# Scheme-aware search: if a question names a scheme, prefer pieces from that scheme's documents
+# (fewer mix-ups between similar schemes). Names are matched as whole words, ignoring case.
+SCHEME_AWARE = True
+SCHEME_NAMES = {
+    "pm-kisan-guidelines.pdf": ["pm-kisan", "pm kisan", "pmkisan", "kisan samman"],
+    "pm-jay-pib-2024.pdf": ["pm-jay", "pmjay", "pm jay", "ayushman", "jan arogya"],
+    "atal-pension-yojana.pdf": ["atal pension", "apy"],
+    "sukanya-samriddhi-scheme-2019.pdf": ["sukanya", "ssy"],
+    "pmay-g-pib-2024.pdf": ["pmay-g", "pmayg", "pmay", "pmay-gramin", "pmay gramin", "awas yojana",
+                            "awaas yojana", "pm awas", "pm awaas"],
+    "pm-ujjwala-pib-2024.pdf": ["ujjwala", "pmuy"],
+    "pm-jan-dhan-pib-2024.pdf": ["jan dhan", "jan-dhan", "pmjdy"],
+    "pm-mudra-pib-2026.pdf": ["mudra", "pmmy"],
+    "jan-suraksha-pib-2026.txt": ["jeevan jyoti", "pmjjby", "suraksha bima", "pmsby", "jan suraksha",
+                                  "atal pension", "apy"],
+    "stand-up-india-faq-2022.pdf": ["stand-up india", "stand up india", "standup india"],
+    "pm-vishwakarma-pib-2023.pdf": ["vishwakarma"],
+    "pm-svanidhi-guidelines-2026.pdf": ["svanidhi", "street vendor", "street vendors"],
+    "nps-all-citizen-faq.pdf": ["national pension system", "nps"],
+    "pmfby-summary.pdf": ["fasal bima", "pmfby", "crop insurance"],
+}
+
 # Retrieval: how many pieces to give the AI for each question.
 # 8 beat 5 in evaluation (eval/RESULTS.md): 93.6% vs 85.9% correct on gpt-oss-120b.
 TOP_K = 8

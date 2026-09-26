@@ -14,6 +14,8 @@ EXAMPLE_QUESTIONS = [
     "What is the age limit to join Atal Pension Yojana?",
     "How much health cover does Ayushman Bharat PM-JAY give per family?",
     "How much assistance is given to build a house under PMAY-G?",
+    "How much can a street vendor borrow under PM SVANidhi?",
+    "What is the age limit for PMJJBY and PMSBY?",
 ]
 
 load_dotenv()  # locally: reads .env. On Streamlit Cloud the key comes from the app's Secrets.
@@ -25,8 +27,10 @@ st.write(
     "documents, with the file and page they came from."
 )
 st.caption(
-    "Covers: PM-Kisan · Ayushman Bharat PM-JAY · Atal Pension Yojana · "
-    "Sukanya Samriddhi · PM Awas Yojana (Gramin)"
+    "Covers 15 schemes: PM-Kisan · Ayushman Bharat PM-JAY · Atal Pension Yojana · Sukanya Samriddhi · "
+    "PM Awas Yojana (Gramin) · PM Ujjwala · PM Jan Dhan · PM Mudra · PM Jeevan Jyoti Bima · "
+    "PM Suraksha Bima · Stand-Up India · PM Vishwakarma · PM SVANidhi · National Pension System · "
+    "PM Fasal Bima"
 )
 
 if not os.getenv("GROQ_API_KEY"):

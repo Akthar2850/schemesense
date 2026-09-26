@@ -41,17 +41,20 @@ def main(chunk_size=config.CHUNK_SIZE, overlap=config.CHUNK_OVERLAP, collection_
     collection = client.create_collection(collection_name)
 
     ids, documents, metadatas = [], [], []
-    for pdf in sorted(config.DATA_DIR.glob("*.pdf")):
-        reader = PdfReader(pdf)
+    for doc in sorted(config.DATA_DIR.glob("*.pdf")) + sorted(config.DATA_DIR.glob("*.txt")):
+        if doc.suffix == ".pdf":
+            pages = [page.extract_text() or "" for page in PdfReader(doc).pages]
+        else:
+            pages = [doc.read_text(encoding="utf-8")]  # a saved web page counts as one page
         file_chunks = 0
-        for page_number, page in enumerate(reader.pages, start=1):
-            text = clean(page.extract_text() or "")
+        for page_number, page_text in enumerate(pages, start=1):
+            text = clean(page_text)
             for i, chunk in enumerate(split_into_chunks(text, chunk_size, overlap)):
-                ids.append(f"{pdf.name}-p{page_number}-{i}")
+                ids.append(f"{doc.name}-p{page_number}-{i}")
                 documents.append(chunk)
-                metadatas.append({"source": pdf.name, "page": page_number})
+                metadatas.append({"source": doc.name, "page": page_number})
                 file_chunks += 1
-        print(f"{pdf.name}: {len(reader.pages)} pages, {file_chunks} chunks")
+        print(f"{doc.name}: {len(pages)} pages, {file_chunks} chunks")
 
     collection.add(ids=ids, documents=documents, metadatas=metadatas)
     print(f"Stored {len(ids)} chunks in {config.DB_DIR.name}/ (collection '{collection_name}')")

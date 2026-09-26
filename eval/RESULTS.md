@@ -1,11 +1,35 @@
 # Evaluation results
 
-How well does SchemeSense answer questions about the 5 schemes, and which settings work best?
+How well does SchemeSense answer questions about government schemes, and which settings work best?
+Phase 4 evaluated 5 schemes; Phase 4b added 10 more (15 in total) and re-tested.
+
+## 15 schemes (Phase 4b, live setting)
+
+Website model (`gpt-oss-120b` on Groq), 8 pieces × 1,000 chars, **scheme-aware search** (see below),
+93 questions (87 answerable, 6 that must be refused), judged by Gemma with key facts.
+
+| | Correct | Off-topic refused | Right page found | Speed (p50 / p95) |
+|---|---|---|---|---|
+| **All 87 answerable questions** | **93.7%** (79 correct, 5 partial, 3 incorrect) | 100% | 98% | 0.7 s / 1.0 s |
+| The original 39 questions (5 schemes → 15 schemes) | 97.4% → **98.7%** | | | |
+| The 48 new questions (10 new schemes) | 89.6% | | | |
+
+- **Adding 10 schemes did not hurt the original schemes.** With plain search, pieces from similar documents
+  crowded out the right page (right page found at 8 pieces: 97% → 95%). **Scheme-aware search** fixes this: when a
+  question names a scheme ("…under PM-JAY?"), search first looks in that scheme's documents. Right page found:
+  95% (plain) → 98% (scheme-aware) on all 87 questions, and 100% on the original 39 (measured locally, no AI).
+- The 3 incorrect answers were refusals: two PMJJBY questions (the answer sentence in the long saved web page was not
+  among the 8 pieces) and one question that does not name its scheme ("I am a traditional potter…"), where search
+  picked the Mudra document instead of PM Vishwakarma. 3 of the 4 questions that don't name a scheme were answered.
+- The 5 partial answers left out one requested detail (for example the 40% annuity rule for NPS).
+
+## 5 schemes (Phase 4)
 
 ## Test set
-- 45 questions written from the official PDFs (`eval/questions.json`) and reviewed by a human:
-  39 answerable (facts, numbers, eligibility, tricky real-life wording) and 6 that must be refused
-  (5 off-topic, 1 whose answer is only in an image).
+- 93 questions written from the official documents (`eval/questions.json`) and reviewed by a human:
+  87 answerable (facts, numbers, eligibility, tricky real-life wording, questions that don't name the scheme, and
+  "mix-up" questions comparing similar schemes) and 6 that must be refused (5 off-topic, 1 whose answer is only in
+  an image). The Phase 4 tables below use the first 45 (39 answerable).
 - Each answerable question lists its **key facts**: exactly what the question asks for.
 
 ## How answers are scored
@@ -60,7 +84,8 @@ the live setting. 1,500-char pieces look as good on 20b but have not been tested
   Original Qwen scores are kept in `eval/results/<run>.json`, Gemma scores in `<run>-gemma.json`.
 
 ## Limitations
-- 45 questions on 5 schemes: one question is 2.6 points, so small differences are not meaningful.
+- Few questions per scheme (4–9): one question is 1–2.6 points, so small differences are not meaningful.
+- Scheme-aware search helps only when the question names the scheme; otherwise it falls back to normal search.
 - Search depends on wording: "not covered" missed a page that "not operational" found. Hybrid
   (keyword + meaning) search or query rewriting could help.
 - Some documents are summaries or older rules (see `data/SOURCES.md`); answers reflect the documents.

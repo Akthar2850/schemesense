@@ -1,9 +1,10 @@
 """Search accuracy (hit rate@k) for different settings. Runs locally and uses no AI tokens.
 
-Usage: python eval/retrieval_eval.py
+Usage: python eval/retrieval_eval.py [output-name]     (default: retrieval)
 """
 
 import json
+import sys
 
 from common import RESULTS_DIR, collection_for, is_hit, load_questions
 
@@ -39,7 +40,8 @@ def main():
         print(f"missed at k=5, chunk {chunk_size}: {', '.join(r['missed_at_5']) or 'none'}")
 
     RESULTS_DIR.mkdir(exist_ok=True)
-    (RESULTS_DIR / "retrieval.json").write_text(json.dumps(results, indent=2))
+    name = sys.argv[1] if len(sys.argv) > 1 else "retrieval"
+    (RESULTS_DIR / f"{name}.json").write_text(json.dumps(results, indent=2))
 
 
 if __name__ == "__main__":

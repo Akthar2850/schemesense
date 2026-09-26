@@ -721,6 +721,912 @@
     ]
   },
   {
+    "id": "uj-01",
+    "scheme": "PM Ujjwala Yojana",
+    "type": "fact",
+    "question": "What does a family get under PM Ujjwala Yojana?",
+    "expected_answer": "A completely free LPG connection, including the first refill and a stove.",
+    "sources": [
+      {
+        "file": "pm-ujjwala-pib-2024.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "a free LPG connection",
+      "the first refill and a stove"
+    ]
+  },
+  {
+    "id": "uj-02",
+    "scheme": "PM Ujjwala Yojana",
+    "type": "numbers",
+    "question": "How much subsidy is given per cylinder under Ujjwala, and for how many refills a year?",
+    "expected_answer": "A targeted subsidy of Rs 300 per 14.2 kg cylinder for up to 12 refills per year (pro-rated for 5 kg connections).",
+    "sources": [
+      {
+        "file": "pm-ujjwala-pib-2024.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 300 per 14.2 kg cylinder",
+      "up to 12 refills per year"
+    ]
+  },
+  {
+    "id": "uj-03",
+    "scheme": "PM Ujjwala Yojana",
+    "type": "fact",
+    "question": "When was PMUY launched?",
+    "expected_answer": "May 2016.",
+    "sources": [
+      {
+        "file": "pm-ujjwala-pib-2024.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "May 2016"
+    ]
+  },
+  {
+    "id": "uj-04",
+    "scheme": "PM Ujjwala Yojana",
+    "type": "unnamed",
+    "question": "Is there a government scheme that gives poor households a free cooking gas connection?",
+    "expected_answer": "Yes. Pradhan Mantri Ujjwala Yojana (PMUY) gives a completely free LPG connection, with the first refill and a stove.",
+    "sources": [
+      {
+        "file": "pm-ujjwala-pib-2024.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Pradhan Mantri Ujjwala Yojana (PMUY)",
+      "a free LPG connection"
+    ]
+  },
+  {
+    "id": "jd-01",
+    "scheme": "PM Jan Dhan Yojana",
+    "type": "fact",
+    "question": "Is a minimum balance needed in a Jan Dhan account?",
+    "expected_answer": "No. The Basic Savings Bank Deposit Account under PMJDY does not require any minimum balance.",
+    "sources": [
+      {
+        "file": "pm-jan-dhan-pib-2024.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "no minimum balance is required"
+    ]
+  },
+  {
+    "id": "jd-02",
+    "scheme": "PM Jan Dhan Yojana",
+    "type": "numbers",
+    "question": "How much accident insurance comes with the Jan Dhan RuPay card?",
+    "expected_answer": "Rs 2 lakh (Rs 1 lakh for accounts opened before 28 August 2018).",
+    "sources": [
+      {
+        "file": "pm-jan-dhan-pib-2024.pdf",
+        "pages": [
+          2,
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 2 lakh"
+    ]
+  },
+  {
+    "id": "jd-03",
+    "scheme": "PM Jan Dhan Yojana",
+    "type": "numbers",
+    "question": "What overdraft can a Jan Dhan account holder get?",
+    "expected_answer": "An overdraft facility of up to Rs 10,000.",
+    "sources": [
+      {
+        "file": "pm-jan-dhan-pib-2024.pdf",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to Rs 10,000"
+    ]
+  },
+  {
+    "id": "jd-04",
+    "scheme": "PM Jan Dhan Yojana",
+    "type": "fact",
+    "question": "How long is a Jan Dhan small account (Chota Khata) valid?",
+    "expected_answer": "Twelve months; it can be extended by another twelve months if proof of applying for an Officially Valid Document is given.",
+    "sources": [
+      {
+        "file": "pm-jan-dhan-pib-2024.pdf",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "twelve months"
+    ]
+  },
+  {
+    "id": "jd-05",
+    "scheme": "PM Jan Dhan Yojana",
+    "type": "numbers",
+    "question": "How many cash withdrawals a month are allowed in a PMJDY basic savings account?",
+    "expected_answer": "Four times a month.",
+    "sources": [
+      {
+        "file": "pm-jan-dhan-pib-2024.pdf",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "four times a month"
+    ]
+  },
+  {
+    "id": "mu-01",
+    "scheme": "PM Mudra Yojana",
+    "type": "numbers",
+    "question": "What are the Mudra loan categories and their limits?",
+    "expected_answer": "Shishu up to Rs 50,000; Kishor above Rs 50,000 up to Rs 5 lakh; Tarun above Rs 5 lakh up to Rs 10 lakh; Tarun Plus above Rs 10 lakh up to Rs 20 lakh.",
+    "sources": [
+      {
+        "file": "pm-mudra-pib-2026.pdf",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "Shishu up to Rs 50,000",
+      "Kishor up to Rs 5 lakh",
+      "Tarun up to Rs 10 lakh",
+      "Tarun Plus up to Rs 20 lakh"
+    ]
+  },
+  {
+    "id": "mu-02",
+    "scheme": "PM Mudra Yojana",
+    "type": "numbers",
+    "question": "What is the maximum loan amount under PM Mudra Yojana?",
+    "expected_answer": "Rs 20 lakh (Tarun Plus).",
+    "sources": [
+      {
+        "file": "pm-mudra-pib-2026.pdf",
+        "pages": [
+          1,
+          2,
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 20 lakh"
+    ]
+  },
+  {
+    "id": "mu-03",
+    "scheme": "PM Mudra Yojana",
+    "type": "eligibility",
+    "question": "Who can get a Tarun Plus loan under Mudra?",
+    "expected_answer": "Borrowers who have successfully repaid previous loans under the Tarun category and have a stable business track record.",
+    "sources": [
+      {
+        "file": "pm-mudra-pib-2026.pdf",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "borrowers who have successfully repaid previous Tarun loans"
+    ]
+  },
+  {
+    "id": "mu-04",
+    "scheme": "PM Mudra Yojana",
+    "type": "fact",
+    "question": "Do I need collateral for a Mudra loan?",
+    "expected_answer": "No. Mudra loans are collateral-free.",
+    "sources": [
+      {
+        "file": "pm-mudra-pib-2026.pdf",
+        "pages": [
+          1,
+          2,
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "no, the loans are collateral-free"
+    ]
+  },
+  {
+    "id": "mu-05",
+    "scheme": "PM Mudra Yojana",
+    "type": "unnamed",
+    "question": "I want to buy an e-rickshaw for commercial use. Which government loan scheme can help?",
+    "expected_answer": "PM Mudra Yojana gives transport vehicle loans for commercial use, including e-rickshaws.",
+    "sources": [
+      {
+        "file": "pm-mudra-pib-2026.pdf",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "PM Mudra Yojana"
+    ]
+  },
+  {
+    "id": "jj-01",
+    "scheme": "PM Jeevan Jyoti Bima Yojana",
+    "type": "eligibility",
+    "question": "What is the age limit for PMJJBY?",
+    "expected_answer": "18 to 50 years.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "18 to 50 years"
+    ]
+  },
+  {
+    "id": "jj-02",
+    "scheme": "PM Jeevan Jyoti Bima Yojana",
+    "type": "numbers",
+    "question": "What is the yearly premium for PMJJBY?",
+    "expected_answer": "Rs 436 per year per member.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 436 per year"
+    ]
+  },
+  {
+    "id": "jj-03",
+    "scheme": "PM Jeevan Jyoti Bima Yojana",
+    "type": "numbers",
+    "question": "What does PMJJBY pay out?",
+    "expected_answer": "Rs 2 lakh on the subscriber's death due to any cause.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 2 lakh on death due to any cause"
+    ]
+  },
+  {
+    "id": "jj-04",
+    "scheme": "PM Jeevan Jyoti Bima Yojana",
+    "type": "tricky",
+    "question": "I am joining PMJJBY in December. How much premium do I pay?",
+    "expected_answer": "A pro-rata premium of Rs 228 (for enrolment in December, January and February).",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 228"
+    ]
+  },
+  {
+    "id": "jj-05",
+    "scheme": "PM Jeevan Jyoti Bima Yojana",
+    "type": "fact",
+    "question": "Is there a waiting period after joining PMJJBY?",
+    "expected_answer": "Yes. A lien period of 30 days applies from the date of enrolment.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "yes, a lien period of 30 days"
+    ]
+  },
+  {
+    "id": "sb-01",
+    "scheme": "PM Suraksha Bima Yojana",
+    "type": "eligibility",
+    "question": "What is the age limit for PMSBY?",
+    "expected_answer": "18 to 70 years.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "18 to 70 years"
+    ]
+  },
+  {
+    "id": "sb-02",
+    "scheme": "PM Suraksha Bima Yojana",
+    "type": "numbers",
+    "question": "What is the yearly premium for PMSBY?",
+    "expected_answer": "Rs 20 per year per member.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 20 per year"
+    ]
+  },
+  {
+    "id": "sb-03",
+    "scheme": "PM Suraksha Bima Yojana",
+    "type": "numbers",
+    "question": "How much does PMSBY pay for the total loss of sight in one eye?",
+    "expected_answer": "Rs 1 lakh.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 1 lakh"
+    ]
+  },
+  {
+    "id": "mix-01",
+    "scheme": "PM Jeevan Jyoti Bima Yojana / PM Suraksha Bima Yojana",
+    "type": "mix_up",
+    "question": "What is the difference in age limits between PMJJBY and PMSBY?",
+    "expected_answer": "PMJJBY is for ages 18 to 50; PMSBY is for ages 18 to 70.",
+    "sources": [
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "PMJJBY: 18 to 50 years",
+      "PMSBY: 18 to 70 years"
+    ]
+  },
+  {
+    "id": "su-01",
+    "scheme": "Stand-Up India",
+    "type": "numbers",
+    "question": "What loan amount does Stand-Up India offer?",
+    "expected_answer": "Bank loans between Rs 10 lakh and Rs 1 crore.",
+    "sources": [
+      {
+        "file": "stand-up-india-faq-2022.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "between Rs 10 lakh and Rs 1 crore"
+    ]
+  },
+  {
+    "id": "su-02",
+    "scheme": "Stand-Up India",
+    "type": "eligibility",
+    "question": "Who is eligible for the Stand-Up India scheme?",
+    "expected_answer": "SC/ST and/or women entrepreneurs above 18 years of age, for greenfield (first-time) enterprises; they should not be in default to any bank.",
+    "sources": [
+      {
+        "file": "stand-up-india-faq-2022.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "SC/ST and/or women entrepreneurs",
+      "above 18 years of age",
+      "for a greenfield (first-time) enterprise"
+    ]
+  },
+  {
+    "id": "su-03",
+    "scheme": "Stand-Up India",
+    "type": "numbers",
+    "question": "What is the repayment period under Stand-Up India?",
+    "expected_answer": "Up to 7 years, with a moratorium of up to 18 months.",
+    "sources": [
+      {
+        "file": "stand-up-india-faq-2022.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to 7 years",
+      "moratorium of up to 18 months"
+    ]
+  },
+  {
+    "id": "su-04",
+    "scheme": "Stand-Up India",
+    "type": "numbers",
+    "question": "How much margin money must a borrower bring under Stand-Up India?",
+    "expected_answer": "Up to 15% of the project cost (reduced from 25%); the borrower still contributes at least 10% of the project cost.",
+    "sources": [
+      {
+        "file": "stand-up-india-faq-2022.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to 15% of the project cost"
+    ]
+  },
+  {
+    "id": "vw-01",
+    "scheme": "PM Vishwakarma",
+    "type": "numbers",
+    "question": "What loans does PM Vishwakarma give?",
+    "expected_answer": "Collateral-free credit of up to Rs 1 lakh (first tranche) and Rs 2 lakh (second tranche) at a concessional interest rate of 5%.",
+    "sources": [
+      {
+        "file": "pm-vishwakarma-pib-2023.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to Rs 1 lakh (first tranche)",
+      "Rs 2 lakh (second tranche)",
+      "5% interest"
+    ]
+  },
+  {
+    "id": "vw-02",
+    "scheme": "PM Vishwakarma",
+    "type": "numbers",
+    "question": "What is the toolkit incentive under PM Vishwakarma?",
+    "expected_answer": "Rs 15,000.",
+    "sources": [
+      {
+        "file": "pm-vishwakarma-pib-2023.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "Rs 15,000"
+    ]
+  },
+  {
+    "id": "vw-03",
+    "scheme": "PM Vishwakarma",
+    "type": "numbers",
+    "question": "How many trades are covered under PM Vishwakarma?",
+    "expected_answer": "Eighteen traditional trades initially.",
+    "sources": [
+      {
+        "file": "pm-vishwakarma-pib-2023.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "18 trades"
+    ]
+  },
+  {
+    "id": "vw-04",
+    "scheme": "PM Vishwakarma",
+    "type": "unnamed",
+    "question": "I am a traditional potter. Is there a scheme that gives me a toolkit and cheap loans?",
+    "expected_answer": "Yes. PM Vishwakarma supports traditional artisans such as potters with a Rs 15,000 toolkit incentive and collateral-free loans at 5% interest.",
+    "sources": [
+      {
+        "file": "pm-vishwakarma-pib-2023.pdf",
+        "pages": [
+          1,
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "PM Vishwakarma"
+    ]
+  },
+  {
+    "id": "vw-05",
+    "scheme": "PM Vishwakarma",
+    "type": "fact",
+    "question": "When was PM Vishwakarma launched?",
+    "expected_answer": "17 September 2023 (Vishwakarma Jayanti).",
+    "sources": [
+      {
+        "file": "pm-vishwakarma-pib-2023.pdf",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "17 September 2023"
+    ]
+  },
+  {
+    "id": "sv-01",
+    "scheme": "PM SVANidhi",
+    "type": "numbers",
+    "question": "How much can a street vendor borrow under PM SVANidhi?",
+    "expected_answer": "Collateral-free working capital loans in three tranches: up to Rs 15,000 (1st), up to Rs 25,000 (2nd) and up to Rs 50,000 (3rd).",
+    "sources": [
+      {
+        "file": "pm-svanidhi-guidelines-2026.pdf",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to Rs 15,000 (1st tranche)",
+      "up to Rs 25,000 (2nd tranche)",
+      "up to Rs 50,000 (3rd tranche)"
+    ]
+  },
+  {
+    "id": "sv-02",
+    "scheme": "PM SVANidhi",
+    "type": "numbers",
+    "question": "What interest subsidy is given under PM SVANidhi?",
+    "expected_answer": "7% per annum.",
+    "sources": [
+      {
+        "file": "pm-svanidhi-guidelines-2026.pdf",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "7% per annum"
+    ]
+  },
+  {
+    "id": "sv-03",
+    "scheme": "PM SVANidhi",
+    "type": "fact",
+    "question": "Can a street vendor get a credit card under PM SVANidhi, and with what limit?",
+    "expected_answer": "Yes. A UPI-linked RuPay credit card for beneficiaries who have repaid their 2nd tranche loan, with an initial limit of Rs 10,000, gradually increased to Rs 30,000.",
+    "sources": [
+      {
+        "file": "pm-svanidhi-guidelines-2026.pdf",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "key_facts": [
+      "yes",
+      "initial limit of Rs 10,000"
+    ]
+  },
+  {
+    "id": "sv-04",
+    "scheme": "PM SVANidhi",
+    "type": "fact",
+    "question": "Is there a penalty for repaying a PM SVANidhi loan early?",
+    "expected_answer": "No. No prepayment penalty is charged.",
+    "sources": [
+      {
+        "file": "pm-svanidhi-guidelines-2026.pdf",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "no prepayment penalty"
+    ]
+  },
+  {
+    "id": "sv-05",
+    "scheme": "PM SVANidhi",
+    "type": "fact",
+    "question": "Until when has the PM SVANidhi lending period been extended?",
+    "expected_answer": "Until 31 March 2030.",
+    "sources": [
+      {
+        "file": "pm-svanidhi-guidelines-2026.pdf",
+        "pages": [
+          2
+        ]
+      }
+    ],
+    "key_facts": [
+      "31 March 2030"
+    ]
+  },
+  {
+    "id": "np-01",
+    "scheme": "National Pension System",
+    "type": "eligibility",
+    "question": "Who can join NPS, in terms of age?",
+    "expected_answer": "Citizens aged between 18 and 70 years.",
+    "sources": [
+      {
+        "file": "nps-all-citizen-faq.pdf",
+        "pages": [
+          3,
+          7
+        ]
+      }
+    ],
+    "key_facts": [
+      "18 to 70 years"
+    ]
+  },
+  {
+    "id": "np-02",
+    "scheme": "National Pension System",
+    "type": "eligibility",
+    "question": "Can I join NPS if I already have EPF or PPF?",
+    "expected_answer": "Yes. NPS can be joined along with other pension schemes, but a person cannot have more than one NPS account.",
+    "sources": [
+      {
+        "file": "nps-all-citizen-faq.pdf",
+        "pages": [
+          4
+        ]
+      }
+    ],
+    "key_facts": [
+      "yes"
+    ]
+  },
+  {
+    "id": "np-03",
+    "scheme": "National Pension System",
+    "type": "numbers",
+    "question": "How much can I take as a lump sum from NPS at 60?",
+    "expected_answer": "Up to 60% of the corpus as a lump sum; at least 40% must buy an annuity (the whole corpus is paid out if it is below Rs 5 lakh).",
+    "sources": [
+      {
+        "file": "nps-all-citizen-faq.pdf",
+        "pages": [
+          12
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to 60% of the corpus",
+      "at least 40% for an annuity"
+    ]
+  },
+  {
+    "id": "np-04",
+    "scheme": "National Pension System",
+    "type": "eligibility",
+    "question": "Can a Hindu Undivided Family (HUF) open an NPS account?",
+    "expected_answer": "No. HUFs and Persons of Indian Origin are not eligible.",
+    "sources": [
+      {
+        "file": "nps-all-citizen-faq.pdf",
+        "pages": [
+          3
+        ]
+      }
+    ],
+    "key_facts": [
+      "no"
+    ]
+  },
+  {
+    "id": "np-05",
+    "scheme": "National Pension System",
+    "type": "numbers",
+    "question": "When can I partially withdraw from NPS, and how much?",
+    "expected_answer": "After 3 years, up to 25% of one's own contributions, for specific reasons, a maximum of 3 times.",
+    "sources": [
+      {
+        "file": "nps-all-citizen-faq.pdf",
+        "pages": [
+          12
+        ]
+      }
+    ],
+    "key_facts": [
+      "after 3 years",
+      "up to 25% of own contributions"
+    ]
+  },
+  {
+    "id": "mix-02",
+    "scheme": "Atal Pension Yojana / National Pension System",
+    "type": "mix_up",
+    "question": "How do the age limits of APY and NPS differ?",
+    "expected_answer": "APY is for ages 18 to 40; NPS is for ages 18 to 70.",
+    "sources": [
+      {
+        "file": "atal-pension-yojana.pdf",
+        "pages": [
+          1
+        ]
+      },
+      {
+        "file": "nps-all-citizen-faq.pdf",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "file": "jan-suraksha-pib-2026.txt",
+        "pages": [
+          1
+        ]
+      }
+    ],
+    "key_facts": [
+      "APY: 18 to 40 years",
+      "NPS: 18 to 70 years"
+    ]
+  },
+  {
+    "id": "fb-01",
+    "scheme": "PM Fasal Bima Yojana",
+    "type": "numbers",
+    "question": "What premium does a farmer pay for Kharif food and oilseed crops under PMFBY?",
+    "expected_answer": "2% of the sum insured (or the actuarial rate, whichever is less).",
+    "sources": [
+      {
+        "file": "pmfby-summary.pdf",
+        "pages": [
+          6,
+          18
+        ]
+      }
+    ],
+    "key_facts": [
+      "2% of the sum insured"
+    ]
+  },
+  {
+    "id": "fb-02",
+    "scheme": "PM Fasal Bima Yojana",
+    "type": "numbers",
+    "question": "What premium does a farmer pay for Rabi food and oilseed crops under PMFBY?",
+    "expected_answer": "1.5% of the sum insured (or the actuarial rate, whichever is less).",
+    "sources": [
+      {
+        "file": "pmfby-summary.pdf",
+        "pages": [
+          6,
+          18
+        ]
+      }
+    ],
+    "key_facts": [
+      "1.5% of the sum insured"
+    ]
+  },
+  {
+    "id": "fb-03",
+    "scheme": "PM Fasal Bima Yojana",
+    "type": "numbers",
+    "question": "What premium does a farmer pay for commercial or horticultural crops under PMFBY?",
+    "expected_answer": "5% of the sum insured (or the actuarial rate, whichever is less).",
+    "sources": [
+      {
+        "file": "pmfby-summary.pdf",
+        "pages": [
+          6,
+          18
+        ]
+      }
+    ],
+    "key_facts": [
+      "5% of the sum insured"
+    ]
+  },
+  {
+    "id": "fb-04",
+    "scheme": "PM Fasal Bima Yojana",
+    "type": "fact",
+    "question": "How long after harvesting are crops covered under PMFBY?",
+    "expected_answer": "Up to 14 days from harvesting, for crops kept in 'cut and spread' condition to dry in the field.",
+    "sources": [
+      {
+        "file": "pmfby-summary.pdf",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "key_facts": [
+      "up to 14 days"
+    ]
+  },
+  {
+    "id": "fb-05",
+    "scheme": "PM Fasal Bima Yojana",
+    "type": "unnamed",
+    "question": "My crop was destroyed by a hailstorm. Can I get compensation from a government insurance scheme?",
+    "expected_answer": "Yes. Pradhan Mantri Fasal Bima Yojana covers crop losses from hailstorms (including localised hailstorm losses on individual farms).",
+    "sources": [
+      {
+        "file": "pmfby-summary.pdf",
+        "pages": [
+          4,
+          5
+        ]
+      }
+    ],
+    "key_facts": [
+      "yes, under Pradhan Mantri Fasal Bima Yojana",
+      "hailstorm is a covered risk"
+    ]
+  },
+  {
     "id": "gap-01",
     "scheme": "Atal Pension Yojana",
     "type": "known_gap",
@@ -751,7 +1657,7 @@
     "id": "oos-03",
     "scheme": null,
     "type": "out_of_scope",
-    "question": "Who is eligible for the Stand-Up India loan scheme?",
+    "question": "What subsidy does the PM Surya Ghar rooftop solar scheme give?",
     "expected_answer": "I couldn't find this in the scheme documents.",
     "sources": [],
     "key_facts": []

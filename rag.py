@@ -21,21 +21,60 @@ Keep the answer short and clear."""
 NO_DOCUMENTS_PROMPT = "You are an assistant for Indian government schemes. Answer the question briefly."
 
 
+def document_files():
+    return {p.name for p in config.DATA_DIR.iterdir() if p.suffix in (".pdf", ".txt")}
+
+
+_checked = False  # the "has data/ changed?" check runs once per process
+
+
 def get_collection(collection_name=config.COLLECTION_NAME):
+    global _checked
     client = chromadb.PersistentClient(path=str(config.DB_DIR))
-    if collection_name not in [c.name for c in client.list_collections()]:
-        if collection_name != config.COLLECTION_NAME:
+    exists = collection_name in [c.name for c in client.list_collections()]
+    if collection_name != config.COLLECTION_NAME:
+        if not exists:
             raise ValueError(f"Collection '{collection_name}' not found. Build it with ingest.main().")
-        ingest.main()  # first run (e.g. on the cloud server): build the database from data/
+        return client.get_collection(collection_name)
+    if exists and not _checked:
+        stored = client.get_collection(collection_name).get(include=["metadatas"])["metadatas"]
+        exists = {m["source"] for m in stored} == document_files()  # rebuild if data/ changed
+    if not exists:
+        ingest.main()  # first run (e.g. on the cloud server), or documents were added/removed
+    _checked = True
     return client.get_collection(collection_name)
 
 
-def retrieve(question, top_k=config.TOP_K, collection_name=config.COLLECTION_NAME):
-    results = get_collection(collection_name).query(query_texts=[question], n_results=top_k)
-    return [
-        {"text": text, "source": meta["source"], "page": meta["page"]}
-        for text, meta in zip(results["documents"][0], results["metadatas"][0])
-    ]
+def schemes_named_in(question):
+    """Documents whose scheme is named in the question (whole-word match, ignoring case)."""
+    text = question.lower()
+    return sorted(
+        doc for doc, names in config.SCHEME_NAMES.items()
+        if any(re.search(rf"(?<![\w-]){re.escape(name)}(?![\w-])", text) for name in names)
+    )
+
+
+def retrieve(question, top_k=config.TOP_K, collection_name=config.COLLECTION_NAME,
+             scheme_aware=config.SCHEME_AWARE):
+    collection = get_collection(collection_name)
+
+    def query(n, where=None):
+        results = collection.query(query_texts=[question], n_results=n, where=where)
+        return [
+            {"text": text, "source": meta["source"], "page": meta["page"]}
+            for text, meta in zip(results["documents"][0], results["metadatas"][0])
+        ]
+
+    docs = schemes_named_in(question) if scheme_aware else []
+    if not docs:
+        return query(top_k)
+    # The named scheme's pieces first; if it has fewer than top_k pieces, fill up from everything else.
+    preferred = query(top_k, where={"source": {"$in": docs}})
+    if len(preferred) >= top_k:
+        return preferred
+    seen = {(p["source"], p["page"], p["text"]) for p in preferred}
+    others = [p for p in query(top_k * 2) if (p["source"], p["page"], p["text"]) not in seen]
+    return preferred + others[: top_k - len(preferred)]
 
 
 def chat_client(provider="groq"):
@@ -50,10 +89,11 @@ def chat_client(provider="groq"):
 
 
 def answer(question, top_k=config.TOP_K, collection_name=config.COLLECTION_NAME,
-           model=config.MODEL, provider="groq", use_documents=True):
+           model=config.MODEL, provider="groq", use_documents=True,
+           scheme_aware=config.SCHEME_AWARE):
     start = time.perf_counter()
     if use_documents:
-        sources = retrieve(question, top_k, collection_name)
+        sources = retrieve(question, top_k, collection_name, scheme_aware)
         context = "\n\n".join(
             f"[{n}] ({s['source']}, page {s['page']})\n{s['text']}"
             for n, s in enumerate(sources, start=1)

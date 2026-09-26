@@ -1,0 +1,4649 @@
+{
+  "name": "15s-groq-120b-aware",
+  "config": {
+    "provider": "groq",
+    "model": "openai/gpt-oss-120b",
+    "top_k": 8,
+    "chunk_size": 1000,
+    "use_documents": true,
+    "scheme_aware": true,
+    "judge_model": "google/gemma-4-31b-it",
+    "judge_provider": "nvidia"
+  },
+  "summary": {
+    "questions": 93,
+    "correctness": 0.937,
+    "verdicts": {
+      "correct": 79,
+      "partial": 5,
+      "incorrect": 3
+    },
+    "refusal_accuracy": 1.0,
+    "latency_p50_s": 0.7,
+    "latency_p95_s": 1.0,
+    "avg_input_tokens": 1911,
+    "avg_output_tokens": 86,
+    "hit_rate": 0.977,
+    "est_cost_per_1000_questions_usd": 0.338,
+    "answer_tokens_used": 185671
+  },
+  "records": [
+    {
+      "id": "kisan-01",
+      "type": "numbers",
+      "question": "How much money does a farmer family get per year under PM-Kisan?",
+      "expected_answer": "Rs 6,000 per year, paid directly into the bank account (DBT).",
+      "answer": "A farmer’s family receives **Rs 6,000 per year** under the PM‑Kisan scheme[1].",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        }
+      ],
+      "input_tokens": 1795,
+      "output_tokens": 69,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required amount of Rs 6,000 per year.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-02",
+      "type": "numbers",
+      "question": "In how many instalments is the PM-Kisan benefit paid, and how much is each instalment?",
+      "expected_answer": "Three instalments of Rs 2,000 each, one every 4 months.",
+      "answer": "The benefit is paid in **three installments**, each of **₹ 2,000**[3].",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1805,
+      "output_tokens": 64,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both the number of instalments and the amount of each instalment.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-03",
+      "type": "fact",
+      "question": "Which periods of the year are the PM-Kisan instalments paid for?",
+      "expected_answer": "April-July, August-November and December-March.",
+      "answer": "The instalments are paid in three 4‑month trimesters: April to July, August to November, and the third trimester covering the remaining months of the financial year[3].",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 7
+        }
+      ],
+      "input_tokens": 1849,
+      "output_tokens": 142,
+      "seconds": 1.4,
+      "refused": false,
+      "hit": true,
+      "verdict": "partial",
+      "score": 0.5,
+      "judge_reason": "The assistant mentions the first two periods explicitly but refers to the third period vaguely as 'remaining months' instead of stating 'December-March'. (missing: December-March)",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-04",
+      "type": "tricky",
+      "question": "My grandfather owns farmland and gets a government pension of Rs 12,000 a month. Can he get PM-Kisan money?",
+      "expected_answer": "No. Retired pensioners with a monthly pension of Rs 10,000 or more are excluded (except Multi Tasking Staff / Class IV / Group D employees).",
+      "answer": "No. All super‑annuated/retired pensioners whose monthly pension is Rs 10,000 or more are excluded from receiving PM‑Kisan benefits, even if they own cultivable land[3].",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1937,
+      "output_tokens": 99,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that the grandfather is not eligible based on the pension amount.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-05",
+      "type": "eligibility",
+      "question": "Can a practising doctor who owns agricultural land get PM-Kisan benefits?",
+      "expected_answer": "No. Professionals such as doctors, engineers, lawyers, chartered accountants and architects registered with professional bodies and practising are excluded.",
+      "answer": "No. Practising doctors are listed among the exclusion categories, so even if they own cultivable land they are not eligible for PM‑Kisan benefits[3].",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1979,
+      "output_tokens": 73,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that practising doctors are not eligible.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-06",
+      "type": "eligibility",
+      "question": "Is a farmer who paid income tax in the last assessment year eligible for PM-Kisan?",
+      "expected_answer": "No. All persons who paid income tax in the last assessment year are excluded.",
+      "answer": "No. Farmers who paid income tax in the last assessment year are listed among the exclusion categories and therefore are not eligible for PM‑Kisan benefits. [1]",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1854,
+      "output_tokens": 63,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that the farmer is not eligible.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-07",
+      "type": "fact",
+      "question": "What is the cut-off date for deciding eligibility under PM-Kisan?",
+      "expected_answer": "01.02.2019 (1 February 2019); changes after that are not considered for the next 5 years, except transfer of land by succession due to death.",
+      "answer": "The scheme specifies that for transfers of cultivable land occurring after **01‑02‑2019**, officials must reassess the transferor’s eligibility and decide whether benefits should be stopped, and update the portal accordingly[1].",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        }
+      ],
+      "input_tokens": 1864,
+      "output_tokens": 97,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions the cut-off date of 01-02-2019.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "kisan-08",
+      "type": "fact",
+      "question": "How does PM-Kisan define a farmer's family?",
+      "expected_answer": "A family of husband, wife and minor children who own cultivable land as per the land records of the State/UT.",
+      "answer": "A farmer’s family is defined as “a family comprising of husband, wife and minor children who own cultivable land as per the land records of the concerned State/UT”[1][2]",
+      "sources": [
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1881,
+      "output_tokens": 81,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated all key facts and did not contradict the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-01",
+      "type": "eligibility",
+      "question": "What is the age limit to join Atal Pension Yojana?",
+      "expected_answer": "Between 18 and 40 years of age.",
+      "answer": "The scheme is open only to Indian citizens who are between 18 and 40 years of age at the time of joining [1][2].",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2099,
+      "output_tokens": 73,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the age limit of 18 to 40 years as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-02",
+      "type": "numbers",
+      "question": "What monthly pension amounts can I choose under Atal Pension Yojana?",
+      "expected_answer": "A guaranteed minimum monthly pension of Rs 1,000, 2,000, 3,000, 4,000 or 5,000 after age 60.",
+      "answer": "You can select a guaranteed monthly pension of **Rs 1,000, Rs 2,000, Rs 3,000, Rs 4,000 or Rs 5,000** after you turn 60 years old[4][6]",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2154,
+      "output_tokens": 101,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly listed all the required pension amounts and provided no contradictory information.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-03",
+      "type": "tricky",
+      "question": "I paid income tax two years ago. Can I still join APY now?",
+      "expected_answer": "No. From 1 October 2022, anyone who is or has been an income-tax payer cannot join APY.",
+      "answer": "No. The scheme is open only to people who are **not** income‑tax payers; anyone who has been an income‑tax payer cannot join APY[1][3].",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2243,
+      "output_tokens": 66,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that the user cannot join because they have been an income-tax payer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-04",
+      "type": "fact",
+      "question": "What happens to the APY pension after the subscriber dies?",
+      "expected_answer": "The spouse gets the same pension for life; after both the subscriber and spouse die, the pension wealth accumulated till age 60 is returned to the nominee.",
+      "answer": "If the subscriber dies, the spouse continues to receive the same guaranteed monthly pension for his/her lifetime; after the spouse’s death, the pension corpus that was accumulated up to age 60 is paid to the subscriber’s nominee. [1][2]",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2097,
+      "output_tokens": 109,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both key facts and did not contradict the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-05",
+      "type": "fact",
+      "question": "How often can contributions be made to an APY account?",
+      "expected_answer": "Monthly, quarterly or half-yearly, through auto-debit from a savings bank account.",
+      "answer": "Contributions to an Atal Pension Yojana (APY) account can be made on a **monthly, quarterly or half‑yearly** basis[1][4].",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2239,
+      "output_tokens": 92,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated all three required contribution frequencies.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-06",
+      "type": "fact",
+      "question": "What is the toll-free helpline number for Atal Pension Yojana?",
+      "expected_answer": "1800 1100 69 (PFRDA's APY help desk).",
+      "answer": "The toll‑free helpline for Atal Pension Yojana is **1800 1100 69**[3]",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2385,
+      "output_tokens": 83,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant provided the exact toll-free helpline number requested.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "apy-07",
+      "type": "fact",
+      "question": "Is nomination compulsory when opening an APY account?",
+      "expected_answer": "Yes. Providing nomination and spouse details is mandatory.",
+      "answer": "Yes, providing a nomination (along with spouse details) is mandatory when opening an Atal Pension Yojana account. [3]",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2144,
+      "output_tokens": 89,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that nomination is mandatory.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-01",
+      "type": "numbers",
+      "question": "How much health cover does Ayushman Bharat PM-JAY give per family per year?",
+      "expected_answer": "Up to Rs 5 lakh per family per year.",
+      "answer": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana provides health coverage of up to Rs 5 lakh per family per year for secondary and tertiary care hospitalisation[1][4]",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1961,
+      "output_tokens": 106,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the health cover amount as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-02",
+      "type": "tricky",
+      "question": "My father is 72 and our family income is high. Can he still get Ayushman Bharat coverage?",
+      "expected_answer": "Yes. Since the September 2024 expansion, all senior citizens aged 70 and above are covered regardless of income.",
+      "answer": "Yes. All senior citizens aged 70 and above receive Ayushman Bharat coverage irrespective of their income level[1][2]",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1874,
+      "output_tokens": 77,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly confirms that the father is covered regardless of income.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-03",
+      "type": "numbers",
+      "question": "If a senior citizen above 70 is already part of a family covered by PM-JAY, do they get anything extra?",
+      "expected_answer": "Yes, an additional top-up cover of up to Rs 5 lakh per year for themselves, not shared with family members under 70.",
+      "answer": "Senior citizens aged 70 and above who are already included in a family that has AB PM‑JAY coverage receive an additional top‑up of up to Rs 5 lakh per year just for them, which is not shared with other family members under 70 [1].",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1821,
+      "output_tokens": 103,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both key facts and provided no contradictions.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-04",
+      "type": "eligibility",
+      "question": "Can a senior citizen who already has private health insurance benefit from PM-JAY?",
+      "expected_answer": "Yes. Senior citizens covered by private health insurance or ESI are also eligible.",
+      "answer": "Yes. Senior citizens who already have private health‑insurance policies are still eligible to receive benefits under AB PM‑JAY[2].",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1812,
+      "output_tokens": 87,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that senior citizens with private insurance are eligible.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-05",
+      "type": "eligibility",
+      "question": "A 75-year-old retired central government employee is in CGHS. What are their options under PM-JAY?",
+      "expected_answer": "They can either continue with their current scheme (CGHS) or opt for AB PM-JAY.",
+      "answer": "The senior citizen can keep using the Central Government Health Scheme (CGHS) or choose to join AB PM‑JAY. Because they are aged 70 or above, they will also receive a new, distinct AB PM‑JAY card and an additional top‑up cover of up to Rs 5 lakh per year that is not shared with younger family members[1][2].",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1826,
+      "output_tokens": 143,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions both options: continuing with CGHS or opting for AB PM-JAY.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-06",
+      "type": "fact",
+      "question": "What type of treatment does PM-JAY cover?",
+      "expected_answer": "Secondary and tertiary care hospitalisation.",
+      "answer": "PM‑JAY provides coverage for secondary and tertiary‑care hospitalisation treatments[2][7]",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1813,
+      "output_tokens": 73,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required key fact and did not contradict the reference.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-07",
+      "type": "fact",
+      "question": "In which states or UTs was PM-JAY not operational as of September 2024?",
+      "expected_answer": "NCT of Delhi, West Bengal and Odisha (it was operational in 33 States/UTs).",
+      "answer": "PM‑JAY was not operational in the National Capital Territory of Delhi, West Bengal, and Odisha as of September 2024[6].",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1822,
+      "output_tokens": 83,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentioned all three required states/UTs and provided no contradictory information.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jay-08",
+      "type": "numbers",
+      "question": "How many digits does an ABHA (Ayushman Bharat Health Account) number have?",
+      "expected_answer": "14 digits.",
+      "answer": "The ABHA number consists of 14 digits[1].",
+      "sources": [
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1977,
+      "output_tokens": 36,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct number of digits as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-01",
+      "type": "eligibility",
+      "question": "Up to what age of the girl can a Sukanya Samriddhi account be opened?",
+      "expected_answer": "Before the girl turns 10 years old.",
+      "answer": "A Sukanya Samriddhi account can be opened for a girl child who has **not yet turned ten years old** at the time of opening[1].",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1997,
+      "output_tokens": 98,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states the age limit as not yet turned ten years old, which matches the key fact.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-02",
+      "type": "numbers",
+      "question": "What are the minimum and maximum amounts that can be deposited in a Sukanya Samriddhi account in a financial year?",
+      "expected_answer": "Minimum Rs 250 and maximum Rs 1,50,000 per financial year.",
+      "answer": "The scheme requires a **minimum deposit of ₹250** in a financial year, and the **total amount that can be deposited in a financial year cannot exceed ₹1,50,000**[1].",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 4
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1964,
+      "output_tokens": 130,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both the minimum and maximum deposit amounts as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-03",
+      "type": "fact",
+      "question": "For how many years can deposits be made into a Sukanya Samriddhi account?",
+      "expected_answer": "Until 15 years from the date of opening the account.",
+      "answer": "Deposits can be made into a Sukanya Samriddhi account for up to fifteen years from the date the account is opened[1].",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1914,
+      "output_tokens": 71,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required time frame for deposits.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-04",
+      "type": "fact",
+      "question": "When does a Sukanya Samriddhi account mature?",
+      "expected_answer": "On completion of 21 years from the date of opening.",
+      "answer": "The account matures after twenty‑one years from the date it is opened[3][7]",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1989,
+      "output_tokens": 114,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the maturity period of 21 years from the date of opening.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-05",
+      "type": "numbers",
+      "question": "What interest rate does the Sukanya Samriddhi Account Scheme 2019 notification state?",
+      "expected_answer": "8.4 per cent per annum (as stated in the 2019 notification; rates are revised periodically).",
+      "answer": "The scheme states that deposits earn interest at a rate of **8.4 per cent per annum**[2].",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 9
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1918,
+      "output_tokens": 57,
+      "seconds": 0.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct interest rate as per the key facts.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-06",
+      "type": "tricky",
+      "question": "My daughter is 17 and passed 10th standard. Can I withdraw money from her Sukanya account for her college fees, and how much?",
+      "expected_answer": "Yes. Up to 50% of the balance at the end of the previous financial year can be withdrawn for education once she turns 18 or has passed 10th standard, whichever is earlier, with proof of admission or a fee slip.",
+      "answer": "You may apply for a withdrawal because the girl has passed the 10th standard (the condition is “after the account holder attains the age of eighteen years **or** has passed tenth standard, whichever is earlier”)[1].  \nThe withdrawal can be for **up to fifty per cent** of the amount that was in the account at the end of the financial year preceding the year in which you apply[1].",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 8
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 7
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 7
+        }
+      ],
+      "input_tokens": 1822,
+      "output_tokens": 158,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly confirms that withdrawal is allowed and specifies the limit as up to 50% of the balance.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-07",
+      "type": "eligibility",
+      "question": "How many Sukanya Samriddhi accounts can one family open?",
+      "expected_answer": "For a maximum of two girl children, with exceptions for twins or triplets born in the first two orders of birth.",
+      "answer": "A family may open **a maximum of two Sukanya Samriddhi accounts** (subject to special provisions for twins/triplets). [1][5]",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 8
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 2034,
+      "output_tokens": 69,
+      "seconds": 0.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states the limit of two accounts for girl children.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "ssy-08",
+      "type": "numbers",
+      "question": "What is the penalty if the minimum deposit is not made in a Sukanya Samriddhi account?",
+      "expected_answer": "The account is in default; it can be regularised within 15 years by paying Rs 50 penalty per year of default plus the minimum deposit for each defaulted year.",
+      "answer": "If the minimum annual deposit is not made, the account is considered in default and a penalty of ₹ 50 per year of default must be paid (along with the missed minimum deposit) to regularise the account[1].",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 7
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1879,
+      "output_tokens": 82,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the penalty amount per year of default as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-01",
+      "type": "numbers",
+      "question": "How much financial assistance is given to build a house under PMAY-G?",
+      "expected_answer": "Rs 1.20 lakh in plain areas and Rs 1.30 lakh in North Eastern and hill states (Himachal Pradesh, Uttarakhand) and the UTs of Jammu & Kashmir and Ladakh.",
+      "answer": "The scheme provides a unit assistance of **₹1.20  lakh** for construction of a house in plain areas and **₹1.30  lakh** for households in the North‑Eastern Region states and the hill states of Himachal Pradesh, Uttarakhand, Jammu & Kashmir and Ladakh[3].",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1726,
+      "output_tokens": 148,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both financial assistance amounts for plain areas and hill/NE states.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-02",
+      "type": "fact",
+      "question": "What is the minimum size of a house built under PMAY-G?",
+      "expected_answer": "25 square metres, including a dedicated area for hygienic cooking.",
+      "answer": "The scheme specifies a minimum house size of **25 sq. mt**[1][2]",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1769,
+      "output_tokens": 65,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the minimum size of 25 square metres as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-03",
+      "type": "numbers",
+      "question": "Can PMAY-G beneficiaries get a loan, and on what terms?",
+      "expected_answer": "Yes, a loan of up to Rs 70,000 at a 3% reduced interest rate; the maximum principal eligible for subsidy is Rs 2,00,000.",
+      "answer": "Yes. PMAY‑G provides an institutional construction loan of up to ₹70,000 to eligible beneficiaries at a reduced interest rate of 3 percent. The scheme also allows a subsidy on a principal amount of up to ₹2,00,000, covering the construction cost comprehensively[2].",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1705,
+      "output_tokens": 121,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated all key facts and did not contradict the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-04",
+      "type": "numbers",
+      "question": "How much money can a PMAY-G beneficiary get for building a toilet?",
+      "expected_answer": "Up to Rs 12,000 under Swachh Bharat Mission-Gramin.",
+      "answer": "A beneficiary can receive up to ₹12,000 to construct a toilet [1][4]",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1619,
+      "output_tokens": 68,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct amount as per the key facts.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-05",
+      "type": "tricky",
+      "question": "Our household earns Rs 18,000 a month and lives in a kutcha house. Are we eligible for PMAY-G?",
+      "expected_answer": "No. Households with monthly income over Rs 15,000 (or paying income tax) are automatically excluded.",
+      "answer": "You would not be eligible, because the scheme’s income limit has been raised to ₹15,000 per month, and households earning more than that are excluded [2].",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        }
+      ],
+      "input_tokens": 1878,
+      "output_tokens": 99,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states the user is not eligible based on the income limit.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-06",
+      "type": "eligibility",
+      "question": "Does having a Kisan Credit Card exclude a household from PMAY-G?",
+      "expected_answer": "Only if the Kisan Credit Card has a credit limit of Rs 50,000 or above.",
+      "answer": "Yes. Households that have a Kisan Credit Card with a credit limit of ₹50,000 or more are automatically excluded from PMAY‑G[1].",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        }
+      ],
+      "input_tokens": 1696,
+      "output_tokens": 96,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states the credit limit condition of Rs 50,000 or more as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-07",
+      "type": "numbers",
+      "question": "What share of PMAY-G targets is reserved for SC/ST households?",
+      "expected_answer": "A minimum of 60%.",
+      "answer": "The scheme reserves at least 60 % of its targets for Scheduled Caste (SC) and Scheduled Tribe (ST) households[7].",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        }
+      ],
+      "input_tokens": 1806,
+      "output_tokens": 72,
+      "seconds": 0.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required minimum percentage of 60%.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "pmayg-08",
+      "type": "fact",
+      "question": "When was PMAY-Gramin launched?",
+      "expected_answer": "20 November 2016.",
+      "answer": "PMAY‑Gramin was launched on 20 November 2016[8]",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1728,
+      "output_tokens": 50,
+      "seconds": 0.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct launch date.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "uj-01",
+      "type": "fact",
+      "question": "What does a family get under PM Ujjwala Yojana?",
+      "expected_answer": "A completely free LPG connection, including the first refill and a stove.",
+      "answer": "Under the Pradhan Mantri Ujjwala Yojana, a family receives a completely free LPG connection together with the first LPG refill and a stove, along with a targeted subsidy on subsequent refills[3].",
+      "sources": [
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1753,
+      "output_tokens": 96,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions all key facts and does not contradict the reference.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "uj-02",
+      "type": "numbers",
+      "question": "How much subsidy is given per cylinder under Ujjwala, and for how many refills a year?",
+      "expected_answer": "A targeted subsidy of Rs 300 per 14.2 kg cylinder for up to 12 refills per year (pro-rated for 5 kg connections).",
+      "answer": "The scheme provides a subsidy of **₹300 per 14.2 kg LPG cylinder**, and this subsidy is available for **up to 12 refills each year**[1].",
+      "sources": [
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jay-pib-2024.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1672,
+      "output_tokens": 80,
+      "seconds": 1.1,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both the subsidy amount and the number of refills per year.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "uj-03",
+      "type": "fact",
+      "question": "When was PMUY launched?",
+      "expected_answer": "May 2016.",
+      "answer": "PMUY was launched in May 2016[3]",
+      "sources": [
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        }
+      ],
+      "input_tokens": 1723,
+      "output_tokens": 62,
+      "seconds": 1.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct launch date.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "uj-04",
+      "type": "unnamed",
+      "question": "Is there a government scheme that gives poor households a free cooking gas connection?",
+      "expected_answer": "Yes. Pradhan Mantri Ujjwala Yojana (PMUY) gives a completely free LPG connection, with the first refill and a stove.",
+      "answer": "Yes. The Pradhan Mantri Ujjwala Yojana (PMUY) provides each poor household with a completely free LPG (cooking‑gas) connection, including the first refill and stove [2][1]",
+      "sources": [
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-ujjwala-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1810,
+      "output_tokens": 81,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions both the scheme name and the provision of a free LPG connection.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jd-01",
+      "type": "fact",
+      "question": "Is a minimum balance needed in a Jan Dhan account?",
+      "expected_answer": "No. The Basic Savings Bank Deposit Account under PMJDY does not require any minimum balance.",
+      "answer": "No. Jan Dhan accounts are opened with zero‑balance requirements and do not require a minimum balance to be maintained[2][6]",
+      "sources": [
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1619,
+      "output_tokens": 80,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that no minimum balance is required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jd-02",
+      "type": "numbers",
+      "question": "How much accident insurance comes with the Jan Dhan RuPay card?",
+      "expected_answer": "Rs 2 lakh (Rs 1 lakh for accounts opened before 28 August 2018).",
+      "answer": "The RuPay debit card issued under PM Jan Dhan includes an accident‑insurance cover of **Rs 2 lakhs** (for accounts opened after 28 August 2018; earlier accounts have a Rs 1 lakh cover)[1][3]",
+      "sources": [
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1774,
+      "output_tokens": 131,
+      "seconds": 1.0,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states the key fact of Rs 2 lakh insurance.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jd-03",
+      "type": "numbers",
+      "question": "What overdraft can a Jan Dhan account holder get?",
+      "expected_answer": "An overdraft facility of up to Rs 10,000.",
+      "answer": "Jan Dhan account holders are eligible for an overdraft facility as part of the scheme’s financial‑product offerings[5][7].",
+      "sources": [
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1619,
+      "output_tokens": 82,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "partial",
+      "score": 0.5,
+      "judge_reason": "The assistant mentions the existence of an overdraft facility but fails to state the specific limit of Rs 10,000. (missing: up to Rs 10,000)",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jd-04",
+      "type": "fact",
+      "question": "How long is a Jan Dhan small account (Chota Khata) valid?",
+      "expected_answer": "Twelve months; it can be extended by another twelve months if proof of applying for an Officially Valid Document is given.",
+      "answer": "A Jan Dhan small account (Chota Khata) is normally valid for **twelve months**, and it can be extended for another twelve months if the holder shows proof of applying for an officially valid document within the first year[1].",
+      "sources": [
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1624,
+      "output_tokens": 84,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the validity period of twelve months and provided the extension condition without any contradictions.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jd-05",
+      "type": "numbers",
+      "question": "How many cash withdrawals a month are allowed in a PMJDY basic savings account?",
+      "expected_answer": "Four times a month.",
+      "answer": "The scheme permits cash withdrawals from a PMJDY Basic Savings Bank Deposit Account up to **four times per month**[2].",
+      "sources": [
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1595,
+      "output_tokens": 50,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct number of allowed withdrawals per month.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mu-01",
+      "type": "numbers",
+      "question": "What are the Mudra loan categories and their limits?",
+      "expected_answer": "Shishu up to Rs 50,000; Kishor above Rs 50,000 up to Rs 5 lakh; Tarun above Rs 5 lakh up to Rs 10 lakh; Tarun Plus above Rs 10 lakh up to Rs 20 lakh.",
+      "answer": "The Mudra Yojana provides four collateral‑free loan categories – **Shishu, Kishor, Tarun and Tarun Plus** – with loans available **up to ₹20 lakh** for eligible activities[4][1]",
+      "sources": [
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 9
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1852,
+      "output_tokens": 132,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": false,
+      "verdict": "partial",
+      "score": 0.5,
+      "judge_reason": "The assistant lists the categories but fails to specify the individual limits for Shishu, Kishor, and Tarun. (missing: Shishu up to Rs 50,000, Kishor up to Rs 5 lakh, Tarun up to Rs 10 lakh)",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mu-02",
+      "type": "numbers",
+      "question": "What is the maximum loan amount under PM Mudra Yojana?",
+      "expected_answer": "Rs 20 lakh (Tarun Plus).",
+      "answer": "The scheme provides collateral‑free loans of up to ₹20 lakh per borrower[7][1].",
+      "sources": [
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1909,
+      "output_tokens": 73,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the maximum loan amount of Rs 20 lakh.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mu-03",
+      "type": "eligibility",
+      "question": "Who can get a Tarun Plus loan under Mudra?",
+      "expected_answer": "Borrowers who have successfully repaid previous loans under the Tarun category and have a stable business track record.",
+      "answer": "A borrower who has already repaid a previous Tarun‑category loan and can show a stable business track record is eligible for a Tarun Plus loan[5].",
+      "sources": [
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1724,
+      "output_tokens": 81,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions the requirement of having repaid a previous Tarun-category loan.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mu-04",
+      "type": "fact",
+      "question": "Do I need collateral for a Mudra loan?",
+      "expected_answer": "No. Mudra loans are collateral-free.",
+      "answer": "No. Mudra loans are offered as collateral‑free credit (up to ₹20 lakh) for eligible micro‑enterprises[1][8]",
+      "sources": [
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1592,
+      "output_tokens": 80,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that Mudra loans are collateral-free.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mu-05",
+      "type": "unnamed",
+      "question": "I want to buy an e-rickshaw for commercial use. Which government loan scheme can help?",
+      "expected_answer": "PM Mudra Yojana gives transport vehicle loans for commercial use, including e-rickshaws.",
+      "answer": "The Pradhan Mantri Mudra Yojana (PMMY) provides transport‑vehicle loans for commercial use, including the purchase of e‑rickshaws [3]",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 8
+        }
+      ],
+      "input_tokens": 1964,
+      "output_tokens": 153,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions the PM Mudra Yojana as the scheme for e-rickshaw loans.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jj-01",
+      "type": "eligibility",
+      "question": "What is the age limit for PMJJBY?",
+      "expected_answer": "18 to 50 years.",
+      "answer": "The Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) is available to individuals aged 18 to 50 years.[1]",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2191,
+      "output_tokens": 78,
+      "seconds": 0.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct age limit as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jj-02",
+      "type": "numbers",
+      "question": "What is the yearly premium for PMJJBY?",
+      "expected_answer": "Rs 436 per year per member.",
+      "answer": "The premium for Pradhan Mantri Jeevan Jyoti Bima Yojana (PMJJBY) is **Rs. 436 per annum per member**[7].",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2294,
+      "output_tokens": 103,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct yearly premium.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jj-03",
+      "type": "numbers",
+      "question": "What does PMJJBY pay out?",
+      "expected_answer": "Rs 2 lakh on the subscriber's death due to any cause.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2299,
+      "output_tokens": 99,
+      "seconds": 0.7,
+      "refused": true,
+      "hit": true,
+      "verdict": "incorrect",
+      "score": 0.0,
+      "judge_reason": "refused to answer"
+    },
+    {
+      "id": "jj-04",
+      "type": "tricky",
+      "question": "I am joining PMJJBY in December. How much premium do I pay?",
+      "expected_answer": "A pro-rata premium of Rs 228 (for enrolment in December, January and February).",
+      "answer": "You will pay a pro‑rated premium of **Rs 228** for enrolment in December. [2]",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2266,
+      "output_tokens": 84,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct premium amount of Rs 228.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "jj-05",
+      "type": "fact",
+      "question": "Is there a waiting period after joining PMJJBY?",
+      "expected_answer": "Yes. A lien period of 30 days applies from the date of enrolment.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2261,
+      "output_tokens": 46,
+      "seconds": 0.8,
+      "refused": true,
+      "hit": true,
+      "verdict": "incorrect",
+      "score": 0.0,
+      "judge_reason": "refused to answer"
+    },
+    {
+      "id": "sb-01",
+      "type": "eligibility",
+      "question": "What is the age limit for PMSBY?",
+      "expected_answer": "18 to 70 years.",
+      "answer": "The Pradhan Mantri Suraksha Bima Yojana (PMSBY) is available to persons aged **18 to 70 years**[1].",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2223,
+      "output_tokens": 78,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct age limit as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sb-02",
+      "type": "numbers",
+      "question": "What is the yearly premium for PMSBY?",
+      "expected_answer": "Rs 20 per year per member.",
+      "answer": "The yearly premium for Pradhan Mantri Suraksha Bima Yojana (PMSBY) is Rs 20 per member per annum[2].",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2300,
+      "output_tokens": 106,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct yearly premium.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sb-03",
+      "type": "numbers",
+      "question": "How much does PMSBY pay for the total loss of sight in one eye?",
+      "expected_answer": "Rs 1 lakh.",
+      "answer": "The scheme pays **Rs. 1 lakh** for total loss of sight in one eye[1].",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2275,
+      "output_tokens": 75,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct amount as per the key facts.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mix-01",
+      "type": "mix_up",
+      "question": "What is the difference in age limits between PMJJBY and PMSBY?",
+      "expected_answer": "PMJJBY is for ages 18 to 50; PMSBY is for ages 18 to 70.",
+      "answer": "PMJJBY covers individuals aged 18 to 50 years, while PMSBY covers individuals aged 18 to 70 years, a difference of 20 years in the upper age limit. [2][1]",
+      "sources": [
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2229,
+      "output_tokens": 102,
+      "seconds": 1.1,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the age limits for both schemes as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "su-01",
+      "type": "numbers",
+      "question": "What loan amount does Stand-Up India offer?",
+      "expected_answer": "Bank loans between Rs 10 lakh and Rs 1 crore.",
+      "answer": "Stand‑Up India provides bank loans ranging from ₹10 lakh to ₹1 crore per borrower[3].",
+      "sources": [
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 3
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1936,
+      "output_tokens": 66,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the loan amount range as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "su-02",
+      "type": "eligibility",
+      "question": "Who is eligible for the Stand-Up India scheme?",
+      "expected_answer": "SC/ST and/or women entrepreneurs above 18 years of age, for greenfield (first-time) enterprises; they should not be in default to any bank.",
+      "answer": "SC/ST and/or women entrepreneurs who are at least 18 years old, seeking a green‑field enterprise (manufacturing, services, trading or activities allied to agriculture). For non‑individual enterprises, 51 % of the shareholding and control must be held by an SC/ST and/or women entrepreneur, and borrowers must not be in default with any bank/financial institution[3]. All branches of scheduled commercial banks are the eligible lending institutions, and loans are accessed directly at the branch, via the Stand‑Up India portal or through the Lead District Manager[5].",
+      "sources": [
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 3
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1934,
+      "output_tokens": 146,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "All key facts are explicitly stated and there are no contradictions with the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "su-03",
+      "type": "numbers",
+      "question": "What is the repayment period under Stand-Up India?",
+      "expected_answer": "Up to 7 years, with a moratorium of up to 18 months.",
+      "answer": "The repayment period under the Stand‑Up India Scheme is a maximum of up to 7 years[1].",
+      "sources": [
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 3
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1937,
+      "output_tokens": 57,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "partial",
+      "score": 0.5,
+      "judge_reason": "The assistant mentioned the repayment period but omitted the moratorium period. (missing: moratorium of up to 18 months)",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "su-04",
+      "type": "numbers",
+      "question": "How much margin money must a borrower bring under Stand-Up India?",
+      "expected_answer": "Up to 15% of the project cost (reduced from 25%); the borrower still contributes at least 10% of the project cost.",
+      "answer": "The borrower must provide margin money of up to 15 % of the project cost (with a minimum own contribution of at least 10 % of the project cost) [1][3]",
+      "sources": [
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 2
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 3
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1940,
+      "output_tokens": 82,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required margin money percentage.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "vw-01",
+      "type": "numbers",
+      "question": "What loans does PM Vishwakarma give?",
+      "expected_answer": "Collateral-free credit of up to Rs 1 lakh (first tranche) and Rs 2 lakh (second tranche) at a concessional interest rate of 5%.",
+      "answer": "PM Vishwakarma provides collateral‑free credit support of up to ₹1 lakh in the first tranche and up to ₹2 lakh in the second tranche, both at a concessional interest rate of 5%[1][2]",
+      "sources": [
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1829,
+      "output_tokens": 91,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated all key facts regarding the loan tranches and the interest rate.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "vw-02",
+      "type": "numbers",
+      "question": "What is the toolkit incentive under PM Vishwakarma?",
+      "expected_answer": "Rs 15,000.",
+      "answer": "The scheme provides a toolkit incentive of ₹15,000[1].",
+      "sources": [
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 7
+        }
+      ],
+      "input_tokens": 1842,
+      "output_tokens": 42,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct toolkit incentive amount.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "vw-03",
+      "type": "numbers",
+      "question": "How many trades are covered under PM Vishwakarma?",
+      "expected_answer": "Eighteen traditional trades initially.",
+      "answer": "The scheme initially covers **eighteen traditional trades**[1].",
+      "sources": [
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 3
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 7
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1957,
+      "output_tokens": 57,
+      "seconds": 1.0,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct number of trades as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "vw-04",
+      "type": "unnamed",
+      "question": "I am a traditional potter. Is there a scheme that gives me a toolkit and cheap loans?",
+      "expected_answer": "Yes. PM Vishwakarma supports traditional artisans such as potters with a Rs 15,000 toolkit incentive and collateral-free loans at 5% interest.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1676,
+      "output_tokens": 52,
+      "seconds": 0.7,
+      "refused": true,
+      "hit": false,
+      "verdict": "incorrect",
+      "score": 0.0,
+      "judge_reason": "refused to answer"
+    },
+    {
+      "id": "vw-05",
+      "type": "fact",
+      "question": "When was PM Vishwakarma launched?",
+      "expected_answer": "17 September 2023 (Vishwakarma Jayanti).",
+      "answer": "PM Vishwakarma Yojana was launched on September 17, 2023, on the occasion of Vishwakarma Jayanti[1].",
+      "sources": [
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 3
+        },
+        {
+          "source": "pm-vishwakarma-pib-2023.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 4
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pm-jan-dhan-pib-2024.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1892,
+      "output_tokens": 80,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct launch date.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sv-01",
+      "type": "numbers",
+      "question": "How much can a street vendor borrow under PM SVANidhi?",
+      "expected_answer": "Collateral-free working capital loans in three tranches: up to Rs 15,000 (1st), up to Rs 25,000 (2nd) and up to Rs 50,000 (3rd).",
+      "answer": "A street vendor can receive up to three tranches of working‑capital term loans:  \n* 1st tranche – up to ₹15,000  \n* 2nd tranche – up to ₹25,000  \n* 3rd tranche – up to ₹50,000  \n\nThus, the maximum total borrowing can be ₹15,000 + ₹25,000 + ₹50,000 = ₹90,000 [5]",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 11
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 11
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 9
+        }
+      ],
+      "input_tokens": 1921,
+      "output_tokens": 160,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated all three loan tranches and their respective amounts as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sv-02",
+      "type": "numbers",
+      "question": "What interest subsidy is given under PM SVANidhi?",
+      "expected_answer": "7% per annum.",
+      "answer": "The scheme provides an interest subsidy of **7 % per annum** on the loan, credited to the borrower’s account quarterly[2][3]",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1745,
+      "output_tokens": 86,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required interest subsidy rate and did not contradict the reference.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sv-03",
+      "type": "fact",
+      "question": "Can a street vendor get a credit card under PM SVANidhi, and with what limit?",
+      "expected_answer": "Yes. A UPI-linked RuPay credit card for beneficiaries who have repaid their 2nd tranche loan, with an initial limit of Rs 10,000, gradually increased to Rs 30,000.",
+      "answer": "Yes. A UPI‑linked RuPay credit card is offered to PM SVANidhi beneficiaries who have fully repaid their 2nd‑tranche loan. The card starts with a credit limit of ₹10,000, which will be gradually increased up to ₹30,000[1][3]",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 7
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 11
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 8
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1876,
+      "output_tokens": 124,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly confirms that a credit card is available and states the initial limit of Rs 10,000.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sv-04",
+      "type": "fact",
+      "question": "Is there a penalty for repaying a PM SVANidhi loan early?",
+      "expected_answer": "No. No prepayment penalty is charged.",
+      "answer": "There is no pre‑payment penalty for repaying a PM SVANidhi loan early[2].",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1862,
+      "output_tokens": 44,
+      "seconds": 0.5,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that there is no prepayment penalty.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "sv-05",
+      "type": "fact",
+      "question": "Until when has the PM SVANidhi lending period been extended?",
+      "expected_answer": "Until 31 March 2030.",
+      "answer": "The lending period for PM SVANidhi has been extended up to **31 March 2030**[2].",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 1860,
+      "output_tokens": 101,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the correct extension date as per the key facts.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "np-01",
+      "type": "eligibility",
+      "question": "Who can join NPS, in terms of age?",
+      "expected_answer": "Citizens aged between 18 and 70 years.",
+      "answer": "Individuals can join NPS if they are between 18 and 70 years of age[1][3]",
+      "sources": [
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 2
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 4
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 1
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 1
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1894,
+      "output_tokens": 63,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required age range of 18 to 70 years.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "np-02",
+      "type": "eligibility",
+      "question": "Can I join NPS if I already have EPF or PPF?",
+      "expected_answer": "Yes. NPS can be joined along with other pension schemes, but a person cannot have more than one NPS account.",
+      "answer": "Yes. You can voluntarily subscribe to NPS even if you already have EPF, PPF, Superannuation Fund or Provident Fund, as long as you maintain only one NPS account. [1]",
+      "sources": [
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 4
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 1
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 6
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 9
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 8
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        }
+      ],
+      "input_tokens": 1939,
+      "output_tokens": 71,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly confirms that NPS can be joined alongside EPF and PPF.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "np-03",
+      "type": "numbers",
+      "question": "How much can I take as a lump sum from NPS at 60?",
+      "expected_answer": "Up to 60% of the corpus as a lump sum; at least 40% must buy an annuity (the whole corpus is paid out if it is below Rs 5 lakh).",
+      "answer": "You may withdraw up to 60 % of the total corpus as a lump‑sum at the normal exit (age 60).[2]",
+      "sources": [
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 9
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 5
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 4
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 2
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 16
+        }
+      ],
+      "input_tokens": 1957,
+      "output_tokens": 58,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "partial",
+      "score": 0.5,
+      "judge_reason": "The assistant mentioned the lump sum limit but failed to mention the requirement to use the remaining 40% for an annuity. (missing: at least 40% for an annuity)",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "np-04",
+      "type": "eligibility",
+      "question": "Can a Hindu Undivided Family (HUF) open an NPS account?",
+      "expected_answer": "No. HUFs and Persons of Indian Origin are not eligible.",
+      "answer": "No. Hindu Undivided Families (HUFs) are not eligible to subscribe to NPS[1][2]",
+      "sources": [
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 5
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 7
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 9
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 4
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 5
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        }
+      ],
+      "input_tokens": 1744,
+      "output_tokens": 84,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly states that HUFs are not eligible, which matches the key fact.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "np-05",
+      "type": "numbers",
+      "question": "When can I partially withdraw from NPS, and how much?",
+      "expected_answer": "After 3 years, up to 25% of one's own contributions, for specific reasons, a maximum of 3 times.",
+      "answer": "A subscriber may make a partial withdrawal after completing **3 years** in the NPS. Up to **25 % of his/her own contributions** can be withdrawn for the specified reasons, and this can be done **a maximum of three times** during the entire tenure. [1][2]",
+      "sources": [
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 2
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 9
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 5
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1870,
+      "output_tokens": 114,
+      "seconds": 0.7,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated both key facts and did not contradict the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "mix-02",
+      "type": "mix_up",
+      "question": "How do the age limits of APY and NPS differ?",
+      "expected_answer": "APY is for ages 18 to 40; NPS is for ages 18 to 70.",
+      "answer": "APY is open only to individuals aged 18 to 40 years [1][2], whereas NPS allows citizens to join between 18 and 70 years [3].",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 3
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 12
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1936,
+      "output_tokens": 79,
+      "seconds": 0.6,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the age limits for both APY and NPS as required.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "fb-01",
+      "type": "numbers",
+      "question": "What premium does a farmer pay for Kharif food and oilseed crops under PMFBY?",
+      "expected_answer": "2% of the sum insured (or the actuarial rate, whichever is less).",
+      "answer": "A farmer’s share of premium for Kharif food & oilseed crops under PMFBY is capped at **2 % of the sum‑insured (or the actuarial rate, whichever is lower)**[1][3]",
+      "sources": [
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 7
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 12
+        }
+      ],
+      "input_tokens": 1870,
+      "output_tokens": 134,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required key fact.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "fb-02",
+      "type": "numbers",
+      "question": "What premium does a farmer pay for Rabi food and oilseed crops under PMFBY?",
+      "expected_answer": "1.5% of the sum insured (or the actuarial rate, whichever is less).",
+      "answer": "A farmer’s share of premium for Rabi food‑grain and oilseed crops under PMFBY is limited to **1.5 % of the sum insured (or the actuarial rate, whichever is lower)**[2][3]",
+      "sources": [
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 7
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1915,
+      "output_tokens": 145,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required key fact and matched the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "fb-03",
+      "type": "numbers",
+      "question": "What premium does a farmer pay for commercial or horticultural crops under PMFBY?",
+      "expected_answer": "5% of the sum insured (or the actuarial rate, whichever is less).",
+      "answer": "A farmer’s share of premium for commercial or horticultural crops is limited to **5 % of the sum insured (or the actuarial rate, whichever is lower)**[3][4]",
+      "sources": [
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 7
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 1
+        }
+      ],
+      "input_tokens": 1913,
+      "output_tokens": 118,
+      "seconds": 1.3,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the required key fact and matched the reference answer.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "fb-04",
+      "type": "fact",
+      "question": "How long after harvesting are crops covered under PMFBY?",
+      "expected_answer": "Up to 14 days from harvesting, for crops kept in 'cut and spread' condition to dry in the field.",
+      "answer": "Crops are covered for post‑harvest losses for up to 14 days after harvesting[3].",
+      "sources": [
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 11
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 8
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 15
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 10
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 6
+        }
+      ],
+      "input_tokens": 2192,
+      "output_tokens": 58,
+      "seconds": 0.8,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly stated the key fact of 'up to 14 days'.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "fb-05",
+      "type": "unnamed",
+      "question": "My crop was destroyed by a hailstorm. Can I get compensation from a government insurance scheme?",
+      "expected_answer": "Yes. Pradhan Mantri Fasal Bima Yojana covers crop losses from hailstorms (including localised hailstorm losses on individual farms).",
+      "answer": "Yes. Under the Pradhan Mantri Fasal Bima Yojana, loss or damage caused by localized calamities such as hailstorms is covered, so you can claim compensation for a hail‑storm‑destroyed crop[5].",
+      "sources": [
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 12
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 12
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 21
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 20
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 27
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 14
+        }
+      ],
+      "input_tokens": 2179,
+      "output_tokens": 115,
+      "seconds": 0.9,
+      "refused": false,
+      "hit": true,
+      "verdict": "correct",
+      "score": 1.0,
+      "judge_reason": "The assistant explicitly mentions the scheme name and that hailstorms are a covered risk.",
+      "regraded_by": "google/gemma-4-31b-it"
+    },
+    {
+      "id": "gap-01",
+      "type": "known_gap",
+      "question": "How much must a 25-year-old contribute every month to get a Rs 5,000 pension under APY?",
+      "expected_answer": "I couldn't find this in the scheme documents. (The contribution chart is on page 2 of the brochure, which is an image and can't be read.)",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "atal-pension-yojana.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        }
+      ],
+      "input_tokens": 2109,
+      "output_tokens": 29,
+      "seconds": 0.5,
+      "refused": true
+    },
+    {
+      "id": "oos-01",
+      "type": "out_of_scope",
+      "question": "What is the capital of France?",
+      "expected_answer": "I couldn't find this in the scheme documents.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 10
+        },
+        {
+          "source": "stand-up-india-faq-2022.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 10
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 2
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 13
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 11
+        }
+      ],
+      "input_tokens": 1282,
+      "output_tokens": 26,
+      "seconds": 0.4,
+      "refused": true
+    },
+    {
+      "id": "oos-02",
+      "type": "out_of_scope",
+      "question": "What is the current interest rate on the Public Provident Fund (PPF)?",
+      "expected_answer": "I couldn't find this in the scheme documents.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 4
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 3
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 5
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pm-mudra-pib-2026.pdf",
+          "page": 5
+        }
+      ],
+      "input_tokens": 1926,
+      "output_tokens": 31,
+      "seconds": 0.5,
+      "refused": true
+    },
+    {
+      "id": "oos-03",
+      "type": "out_of_scope",
+      "question": "What subsidy does the PM Surya Ghar rooftop solar scheme give?",
+      "expected_answer": "I couldn't find this in the scheme documents.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 6
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pm-svanidhi-guidelines-2026.pdf",
+          "page": 1
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pmay-g-pib-2024.pdf",
+          "page": 2
+        }
+      ],
+      "input_tokens": 1928,
+      "output_tokens": 36,
+      "seconds": 0.5,
+      "refused": true
+    },
+    {
+      "id": "oos-04",
+      "type": "out_of_scope",
+      "question": "What are the income tax slabs for this year?",
+      "expected_answer": "I couldn't find this in the scheme documents.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 16
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 16
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 3
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 5
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 9
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 18
+        },
+        {
+          "source": "jan-suraksha-pib-2026.txt",
+          "page": 1
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 9
+        }
+      ],
+      "input_tokens": 1888,
+      "output_tokens": 25,
+      "seconds": 0.5,
+      "refused": true
+    },
+    {
+      "id": "oos-05",
+      "type": "out_of_scope",
+      "question": "How do I apply for an Indian passport?",
+      "expected_answer": "I couldn't find this in the scheme documents.",
+      "answer": "I couldn't find this in the scheme documents.",
+      "sources": [
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 4
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 2
+        },
+        {
+          "source": "nps-all-citizen-faq.pdf",
+          "page": 7
+        },
+        {
+          "source": "sukanya-samriddhi-scheme-2019.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 6
+        },
+        {
+          "source": "pmfby-summary.pdf",
+          "page": 36
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 5
+        },
+        {
+          "source": "pm-kisan-guidelines.pdf",
+          "page": 9
+        }
+      ],
+      "input_tokens": 1719,
+      "output_tokens": 43,
+      "seconds": 0.9,
+      "refused": true
+    }
+  ]
+}

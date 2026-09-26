@@ -174,7 +174,12 @@ def main():
     parser.add_argument("--chunk-size", type=int, default=config.CHUNK_SIZE)
     parser.add_argument("--no-rag", action="store_true", help="plain AI with no documents")
     parser.add_argument("--faithfulness", action="store_true", help="also judge faithfulness")
+    parser.add_argument("--no-scheme-aware", action="store_true", help="plain search, ignore scheme names")
     parser.add_argument("--limit", type=int, help="only the first N questions (for a smoke test)")
+    parser.add_argument("--grade-later", action="store_true",
+                        help="only collect answers now; grade them later with eval/regrade.py --missing-only")
+    parser.add_argument("--fresh", action="store_true",
+                        help="start over instead of continuing an interrupted run with the same name")
     parser.add_argument("--max-tokens", type=int, default=150_000,
                         help="stop before the answer model uses more than this many tokens")
     args = parser.parse_args()
@@ -186,15 +191,27 @@ def main():
     gate = RateGate(6500, 25) if args.provider == "groq" else RateGate(10**9, 35)
     judge = Judge()
     records, answer_tokens = [], 0
+    previous = RESULTS_DIR / f"{args.name}.json"
+    if previous.exists() and not args.fresh:  # continue an interrupted run with the same settings
+        saved = json.loads(previous.read_text())
+        if saved.get("config") == run_config(args):
+            records = saved["records"]
+            answer_tokens = saved["summary"].get("answer_tokens_used") or 0
+            judge.tokens = saved["summary"].get("judge_tokens_used") or 0
+            print(f"Resuming '{args.name}': {len(records)} questions already done.")
+    done = {r["id"] for r in records}
 
     for i, q in enumerate(questions, start=1):
+        if q["id"] in done:
+            continue
         if answer_tokens >= args.max_tokens:
             print(f"Stopping early: reached --max-tokens ({args.max_tokens}).")
             break
         gate.wait(1500)
         result = with_retries(lambda: rag.answer(
             q["question"], args.top_k, collection or config.COLLECTION_NAME,
-            args.model, args.provider, use_documents=not args.no_rag))
+            args.model, args.provider, use_documents=not args.no_rag,
+            scheme_aware=not args.no_scheme_aware))
         used = result["input_tokens"] + result["output_tokens"]
         gate.record(used)
         answer_tokens += used
@@ -213,10 +230,14 @@ def main():
             if record["refused"]:
                 record["verdict"], record["score"], record["judge_reason"] = "incorrect", 0.0, "refused to answer"
             else:
-                try:
+                if args.grade_later:
+                    record["verdict"], record["score"] = None, None
+                    record["judge_reason"] = "not graded yet; run eval/regrade.py --missing-only"
+                else:
+                  try:
                     record["verdict"], record["score"], record["judge_reason"] = judge.correctness(
                         q["question"], q["key_facts"], q["expected_answer"], result["answer"])
-                except Exception as error:  # e.g. judge's daily limit reached; keep the answer, grade later
+                  except Exception as error:  # e.g. judge's daily limit reached; keep the answer, grade later
                     record["verdict"], record["score"] = None, None
                     record["judge_reason"] = f"not graded yet ({type(error).__name__}); run eval/regrade.py"
             if args.faithfulness and not args.no_rag:
@@ -232,14 +253,19 @@ def main():
     print(json.dumps(output["summary"], indent=2))
 
 
+def run_config(args):
+    return {"provider": args.provider, "model": args.model, "top_k": args.top_k,
+            "chunk_size": args.chunk_size, "use_documents": not args.no_rag,
+            "scheme_aware": not args.no_scheme_aware,
+            "judge_model": config.JUDGE_MODEL, "judge_provider": config.JUDGE_PROVIDER}
+
+
 def save(args, records, answer_tokens, judge_tokens):
     summary = summarize(records, not args.no_rag, args.model)
     summary.update({"answer_tokens_used": answer_tokens, "judge_tokens_used": judge_tokens})
     output = {
         "name": args.name,
-        "config": {"provider": args.provider, "model": args.model, "top_k": args.top_k,
-                   "chunk_size": args.chunk_size, "use_documents": not args.no_rag,
-                   "judge_model": config.JUDGE_MODEL, "judge_provider": config.JUDGE_PROVIDER},
+        "config": run_config(args),
         "summary": summary,
         "records": records,
     }
