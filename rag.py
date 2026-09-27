@@ -28,10 +28,6 @@ def is_refusal(answer):
 NO_DOCUMENTS_PROMPT = "You are an assistant for Indian government schemes. Answer the question briefly."
 
 
-def document_files():
-    return {p.name for p in config.DATA_DIR.iterdir() if p.suffix in (".pdf", ".txt")}
-
-
 _checked = False  # the "has data/ changed?" check runs once per process
 
 
@@ -44,10 +40,10 @@ def get_collection(collection_name=config.COLLECTION_NAME):
             raise ValueError(f"Collection '{collection_name}' not found. Build it with ingest.main().")
         return client.get_collection(collection_name)
     if exists and not _checked:
-        stored = client.get_collection(collection_name).get(include=["metadatas"])["metadatas"]
-        exists = {m["source"] for m in stored} == document_files()  # rebuild if data/ changed
+        stored = (client.get_collection(collection_name).metadata or {}).get("fingerprint")
+        exists = stored == ingest.fingerprint()  # rebuild if any document was added, removed or changed
     if not exists:
-        ingest.main()  # first run (e.g. on the cloud server), or documents were added/removed
+        ingest.main()  # first run (e.g. on the cloud server), or data/ changed
     _checked = True
     return client.get_collection(collection_name)
 

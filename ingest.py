@@ -1,5 +1,6 @@
 """Read the PDFs in data/, split them into chunks, and store them in Chroma."""
 
+import hashlib
 import logging
 import re
 
@@ -34,18 +35,27 @@ def split_into_chunks(text, size, overlap):
     return [c for c in chunks if c]
 
 
+def fingerprint():
+    """A hash of every document's name and contents: changes whenever data/ changes."""
+    digest = hashlib.sha256()
+    for doc in sorted(config.DATA_DIR.glob("*.pdf")) + sorted(config.DATA_DIR.glob("*.txt")):
+        digest.update(doc.name.encode() + doc.read_bytes())
+    return digest.hexdigest()
+
+
 def main(chunk_size=config.CHUNK_SIZE, overlap=config.CHUNK_OVERLAP, collection_name=config.COLLECTION_NAME):
     client = chromadb.PersistentClient(path=str(config.DB_DIR))
     if collection_name in [c.name for c in client.list_collections()]:
         client.delete_collection(collection_name)  # rebuild from scratch
-    collection = client.create_collection(collection_name)
+    collection = client.create_collection(collection_name, metadata={"fingerprint": fingerprint()})
 
     ids, documents, metadatas = [], [], []
     for doc in sorted(config.DATA_DIR.glob("*.pdf")) + sorted(config.DATA_DIR.glob("*.txt")):
         if doc.suffix == ".pdf":
             pages = [page.extract_text() or "" for page in PdfReader(doc).pages]
         else:
-            pages = [doc.read_text(encoding="utf-8")]  # a saved web page counts as one page
+            # A saved web page: sections separated by a form feed (\f) count as pages.
+            pages = doc.read_text(encoding="utf-8").split("\f")
         file_chunks = 0
         for page_number, page_text in enumerate(pages, start=1):
             text = clean(page_text)

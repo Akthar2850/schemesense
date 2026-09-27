@@ -90,7 +90,8 @@ if st.button("Ask", key="ask", type="primary") and question.strip():
             result = rag.answer(question)
     except RateLimitError:
         log_event(question=question[:300], status="rate_limited")
-        st.warning("The AI is busy right now. Please try again in a minute.")
+        st.warning("The AI is busy, or today's free usage limit has been reached. "
+                   "Please try again in a few minutes, or tomorrow.")
         st.stop()
     except (APIConnectionError, APIStatusError) as error:
         log_event(question=question[:300], status="ai_error", error=type(error).__name__)

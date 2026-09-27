@@ -29,13 +29,13 @@ SCHEME_NAMES = {
                                   "atal pension", "apy"],
     "stand-up-india-faq-2022.pdf": ["stand-up india", "stand up india", "standup india"],
     "pm-vishwakarma-pib-2023.pdf": ["vishwakarma"],
-    "pm-svanidhi-guidelines-2026.pdf": ["svanidhi", "street vendor", "street vendors"],
+    "pm-svanidhi-guidelines-2026.pdf": ["svanidhi", "street vendor", "street vendors", "street-vendor", "street-vendors"],
     "nps-all-citizen-faq.pdf": ["national pension system", "nps"],
     "pmfby-summary.pdf": ["fasal bima", "pmfby", "crop insurance"],
 }
 
 # Retrieval: how many pieces to give the AI for each question.
-# 8 beat 5 in evaluation (eval/RESULTS.md): 93.6% vs 85.9% correct on gpt-oss-120b.
+# 8 beat 5 in evaluation (eval/RESULTS.md): 97.4% vs 89.7% correct on gpt-oss-120b (5 schemes).
 TOP_K = 8
 
 # AI model (Groq)

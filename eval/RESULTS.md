@@ -98,6 +98,12 @@ the live setting. 1,500-char pieces look as good on 20b but have not been tested
 ## Limitations
 - Few questions per scheme (4–9): one question is 1–2.6 points, so small differences are not meaningful.
 - Scheme-aware search helps only when the question names the scheme; otherwise it falls back to normal search.
+- The 15-scheme runs above cited the saved Jan Suraksha web page as a single "page 1", so "right page found" was
+  counted per document for those 10 insurance questions. The page is now split into sections (PMJJBY, PMSBY, APY),
+  and the search check counts the right section: 85 of 87 (97.7%). With the split, the answer sentences for the two
+  missed PMJJBY questions are now retrieved; the answer runs above predate this change.
+- The per-session question limit on the website resets when the page is reloaded, so it slows down but does not
+  stop heavy use of the shared free AI quota.
 - Search depends on wording: "not covered" missed a page that "not operational" found. Hybrid
   (keyword + meaning) search or query rewriting could help.
 - Some documents are summaries or older rules (see `data/SOURCES.md`); answers reflect the documents.

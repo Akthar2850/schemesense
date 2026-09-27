@@ -180,9 +180,12 @@ def main():
                         help="only collect answers now; grade them later with eval/regrade.py --missing-only")
     parser.add_argument("--fresh", action="store_true",
                         help="start over instead of continuing an interrupted run with the same name")
-    parser.add_argument("--max-tokens", type=int, default=150_000,
-                        help="stop before the answer model uses more than this many tokens")
+    parser.add_argument("--max-tokens", type=int,
+                        help="stop before the answer model uses more than this many tokens "
+                             "(default: 150,000 on Groq to protect its daily limit, no limit elsewhere)")
     args = parser.parse_args()
+    if args.max_tokens is None:
+        args.max_tokens = 150_000 if args.provider == "groq" else 10**12
     load_dotenv(config.BASE_DIR / ".env")
 
     questions = load_questions()[: args.limit] if args.limit else load_questions()
@@ -247,8 +250,12 @@ def main():
             verdict = record["verdict"] or "not graded yet"
         print(f"[{i}/{len(questions)}] {q['id']}: {verdict}")
         records.append(record)
-        output = save(args, records, answer_tokens, judge.tokens)  # after every question, so nothing is lost
+        save(args, records, answer_tokens, judge.tokens)  # after every question, so nothing is lost
 
+    if not records:
+        print("No questions were run.")
+        return
+    output = save(args, records, answer_tokens, judge.tokens)
     print("\n" + json.dumps(output["config"]))
     print(json.dumps(output["summary"], indent=2))
 

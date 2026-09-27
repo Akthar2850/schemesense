@@ -27,7 +27,9 @@ def collection_for(chunk_size):
     else:
         name = f"{config.COLLECTION_NAME}_c{chunk_size}"
     client = chromadb.PersistentClient(path=str(config.DB_DIR))
-    if name not in [c.name for c in client.list_collections()]:
+    fresh = name in [c.name for c in client.list_collections()] and \
+        (client.get_collection(name).metadata or {}).get("fingerprint") == ingest.fingerprint()
+    if not fresh:
         ingest.main(chunk_size, chunk_size // 5, name)  # overlap = 20% of the chunk size
     return name
 

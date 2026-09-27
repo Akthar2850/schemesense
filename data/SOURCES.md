@@ -25,6 +25,7 @@ All documents are official Government of India publications. The first 5 were do
 - `sukanya-samriddhi-scheme-2019.pdf`: Hindi sections don't extract cleanly; the English rules do.
   Interest rates in the 2019 notification are revised every quarter, so the rate shown may be out of date.
 - `jan-suraksha-pib-2026.txt`: the official PDFs on jansuraksha.gov.in could not be downloaded, so the
-  PIB press release was saved as text. Citations show it as page 1.
+  PIB press release was saved as text, split into sections that are cited as pages:
+  1 = introduction, 2 = PMJJBY, 3 = PMSBY, 4 = APY.
 - Several documents are PIB summaries, not full rules, and some are from 2022–2024.
 - Answers reflect these documents, which may be older than the latest rule changes.
